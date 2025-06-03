@@ -16,5 +16,10 @@ namespace ShinobiSHift_Game
         {
             InitializeComponent();
         }
+
+        private void ShinobiShiftBooting_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
