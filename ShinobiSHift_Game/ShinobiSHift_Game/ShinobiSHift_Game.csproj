@@ -54,6 +54,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShinobiShiftBooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShinobiShiftBooting.Designer.cs">
+      <DependentUpon>ShinobiShiftBooting.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShinobiShiftClear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ShinobiShiftBooting.resx">
+      <DependentUpon>ShinobiShiftBooting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShinobiShiftClear.resx">
       <DependentUpon>ShinobiShiftClear.cs</DependentUpon>
     </EmbeddedResource>
