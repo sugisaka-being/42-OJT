@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
@@ -36,8 +35,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+        //    this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+
             this.SuspendLayout();
             // 
             // label1
@@ -112,10 +114,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "-SHIFTで開始-";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // ShinobiShiftRule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -131,9 +129,14 @@
             this.KeyPreview = true;
             this.Name = "ShinobiShiftRule";
             this.Text = "ShinobiShift";
+
+           
+         //   ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
             this.Load += new System.EventHandler(this.ShinobiShiftRule_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShinobiShiftRule_KeyDown);
+         //   this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShinobiShiftRule_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +151,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Timer timer1;
     }
 }

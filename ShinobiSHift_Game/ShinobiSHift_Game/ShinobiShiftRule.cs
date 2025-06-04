@@ -16,27 +16,6 @@ namespace ShinobiSHift_Game
         public ShinobiShiftRule()
         {
             InitializeComponent();
-
-            this.KeyPreview = true;
-            this.KeyDown += ShinobiShiftRule_KeyDown;
-
-            timer1 = new Timer();
-            timer1.Interval = 1000; // 1秒ごと
-            timer1.Tick += timer1_Tick;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            //下のコードはタイマーの動作確認
-            Console.WriteLine("タイマー動作中: " + DateTime.Now);
-        }
-
-        private void ShinobiShiftRule_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.ShiftKey && !timer1.Enabled)
-            {
-                timer1.Start();
-            }
         }
 
         private void ShinobiShiftRule_Load(object sender, EventArgs e)
@@ -46,3 +25,4 @@ namespace ShinobiSHift_Game
         }
     }
 }
+

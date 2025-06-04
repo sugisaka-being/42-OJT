@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Player = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
+           // this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.ScoreRecord = new System.Windows.Forms.TextBox();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,11 +61,19 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.ScoreRecord);
             this.ScorePanel.Controls.Add(this.label1);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
+            // 
+            // ScoreRecord
+            // 
+            this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
+            this.ScoreRecord.Name = "ScoreRecord";
+            this.ScoreRecord.Size = new System.Drawing.Size(100, 19);
+            this.ScoreRecord.TabIndex = 1;
             // 
             // label1
             // 
@@ -108,6 +121,10 @@
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
             // ShinobiShiftInAction
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -121,6 +138,8 @@
             this.Controls.Add(this.Player);
             this.Name = "ShinobiShiftInAction";
             this.Text = "ShinobiShift";
+            this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shift);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ScorePanel.ResumeLayout(false);
@@ -142,5 +161,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ScoreRecord;
+        private System.Windows.Forms.Timer timer1;
     }
 }
