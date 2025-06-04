@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ShinobiSHift_Game.ShinobiShiftBooting;
 
 namespace ShinobiSHift_Game
 {
@@ -15,6 +16,12 @@ namespace ShinobiSHift_Game
         public ShinobiShiftGameOver()
         {
             InitializeComponent();
+        }
+
+        private void ShinobiShiftGameOver_Load(object sender, EventArgs e)
+        {
+            Player.Location = new Point(playerX, groundY);
+            Player.Size = new Size(49, 62);
         }
     }
 }

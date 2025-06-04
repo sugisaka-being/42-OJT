@@ -16,5 +16,16 @@ namespace ShinobiSHift_Game
         {
             InitializeComponent();
         }
+
+        public static int playerX = 158;
+        public static int groundY = 272;
+        public static int ceilingY = 0;
+
+        private void ShinobiShiftBooting_Load(object sender, EventArgs e)
+        {
+            Player.Location = new Point(playerX, groundY);
+            Player.Size = new Size(49, 62);
+        }
     }
 }
+

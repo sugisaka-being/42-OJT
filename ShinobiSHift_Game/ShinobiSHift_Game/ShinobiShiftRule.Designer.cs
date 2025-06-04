@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+
+           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+        //    this.timer1 = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+
             this.SuspendLayout();
             // 
             // label1
@@ -49,14 +53,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Prologue";
             // 
-            // pictureBox1
+            // Player
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Fuchsia;
-            this.pictureBox1.Location = new System.Drawing.Point(158, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 76);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.Player.BackColor = System.Drawing.Color.Fuchsia;
+            this.Player.Location = new System.Drawing.Point(158, 262);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(82, 76);
+            this.Player.TabIndex = 4;
+            this.Player.TabStop = false;
             // 
             // ScorePanel
             // 
@@ -73,7 +77,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(222, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(800, 36);
+            this.label2.Size = new System.Drawing.Size(1244, 54);
             this.label2.TabIndex = 6;
             this.label2.Text = "2125年...彼は重力を操るスーツ《SHIFT》を纏う、唯一のエージェント。";
             // 
@@ -84,7 +88,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(291, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(667, 36);
+            this.label3.Size = new System.Drawing.Size(1038, 54);
             this.label3.TabIndex = 7;
             this.label3.Text = "操作は、SHIFTキーひとつ。君は天井も走ることができる。";
             // 
@@ -95,7 +99,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(333, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(563, 36);
+            this.label4.Size = new System.Drawing.Size(873, 54);
             this.label4.TabIndex = 8;
             this.label4.Text = "迫りくる障害物を避け、スコア20000を目指せ。";
             // 
@@ -106,7 +110,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(952, 288);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 43);
+            this.label5.Size = new System.Drawing.Size(337, 65);
             this.label5.TabIndex = 9;
             this.label5.Text = "-SHIFTで開始-";
             // 
@@ -120,11 +124,19 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ScorePanel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Player);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "ShinobiShiftRule";
             this.Text = "ShinobiShift";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
+           
+         //   ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
+            this.Load += new System.EventHandler(this.ShinobiShiftRule_Load);
+         //   this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShinobiShiftRule_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,7 +145,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -22,6 +22,10 @@ namespace ShinobiSHift_Game
             Application.Run(new ShinobiShiftInAction());
             //Application.Run(new ShinobiShiftGameOver());
             //Application.Run(new ShinobiShiftClear());
+            Application.Run(new ShinobiShiftBooting());
+          //  Application.Run(new ShinobiShiftRule());
+           // Application.Run(new ShinobiShiftGameOver());
+           // Application.Run(new ShinobiShiftClear());
 
 
 
