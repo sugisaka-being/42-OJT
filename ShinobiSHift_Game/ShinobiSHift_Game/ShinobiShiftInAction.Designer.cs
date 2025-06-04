@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.ScoreRecord = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,11 +58,29 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.ScoreRecord);
             this.ScorePanel.Controls.Add(this.label1);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
+            // 
+            // ScoreRecord
+            // 
+            this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
+            this.ScoreRecord.Name = "ScoreRecord";
+            this.ScoreRecord.Size = new System.Drawing.Size(100, 19);
+            this.ScoreRecord.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Score :";
             // 
             // pictureBox2
             // 
@@ -97,15 +118,9 @@
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
             // 
-            // label1
+            // timer1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Score :";
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // ShinobiShiftInAction
             // 
@@ -120,6 +135,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ShinobiShiftInAction";
             this.Text = "ShinobiShift";
+            this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
@@ -140,5 +156,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox ScoreRecord;
+        private System.Windows.Forms.Timer timer1;
     }
 }
