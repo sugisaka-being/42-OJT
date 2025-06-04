@@ -7,16 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ShinobiSHift_Game.ShinobiShiftBooting;
+
 
 namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
         private bool isOnCeiling = false;
-
-        private int playerX = 158;
-        private int groundY = 272;
-        private int ceilingY = 0;
 
         public ShinobiShiftInAction()
         {
@@ -32,11 +30,13 @@ namespace ShinobiSHift_Game
 
                 if (isOnCeiling)
                 {
-                    Player.Location = new Point(this.playerX, ceilingY);
+                    Player.Location = new Point(playerX, ceilingY);
+                    Player.Size = new Size(49, 62);
                 }
                 else
                 {
-                    Player.Location = new Point(this.playerX, groundY);                    
+                    Player.Location = new Point(playerX, groundY);
+                    Player.Size = new Size(49, 62);
                 }
             }
         }
