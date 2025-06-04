@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -43,14 +43,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // Player
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Fuchsia;
-            this.pictureBox1.Location = new System.Drawing.Point(158, 262);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(82, 76);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.Player.BackColor = System.Drawing.Color.Fuchsia;
+            this.Player.Location = new System.Drawing.Point(158, 276);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(49, 62);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Player.TabIndex = 5;
+            this.Player.TabStop = false;
             // 
             // ScorePanel
             // 
@@ -60,6 +61,16 @@
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 26);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Score :";
             // 
             // pictureBox2
             // 
@@ -97,16 +108,6 @@
             this.pictureBox5.TabIndex = 10;
             this.pictureBox5.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Score :";
-            // 
             // ShinobiShiftInAction
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -117,10 +118,11 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ScorePanel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Player);
             this.Name = "ShinobiShiftInAction";
             this.Text = "ShinobiShift";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shift);
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -133,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
