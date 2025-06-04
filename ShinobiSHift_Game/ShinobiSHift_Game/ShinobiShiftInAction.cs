@@ -45,7 +45,7 @@ namespace ShinobiSHift_Game
 
             if (score >= 20000)
             {
-                timer1.Stop(); // タイマー停止（必須）
+                timer1.Stop(); // タイマー停止
                 this.Hide();   // 現在のフォームを隠す
 
                 ShinobiShiftClear clearForm = new ShinobiShiftClear();
@@ -58,7 +58,7 @@ namespace ShinobiSHift_Game
             if (e.KeyCode == Keys.ShiftKey)
             {
 
-                    isOnCeiling = !isOnCeiling;
+                isOnCeiling = !isOnCeiling;
 
                 if (isOnCeiling)
                 {
