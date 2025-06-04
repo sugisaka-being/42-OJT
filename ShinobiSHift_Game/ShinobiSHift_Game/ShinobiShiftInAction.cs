@@ -4,24 +4,33 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
+
+
 namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
+        /* Obstacle obstacle;
+         public ShinobiShiftInAction()
+         {
+             InitializeComponent();
+             this.Load += ShinobiShiftInAction_Load;*/
+
         private int score = 0;
         private bool isOnCeiling = false;
 
-
+        Obstacle obstacle;
         public ShinobiShiftInAction()
         {
             InitializeComponent();
-
+            this.Load += ShinobiShiftInAction_Load;
             timer1 = new Timer();
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
@@ -35,6 +44,8 @@ namespace ShinobiSHift_Game
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
+                            //障害物を生成してフィールドに格納
+            var obstacle = new Obstacle(1100, 0, 100, 100, this);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -58,7 +69,7 @@ namespace ShinobiSHift_Game
             if (e.KeyCode == Keys.ShiftKey)
             {
 
-                    isOnCeiling = !isOnCeiling;
+                isOnCeiling = !isOnCeiling;
 
                 if (isOnCeiling)
                 {
@@ -72,5 +83,23 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+
+      /*  private void ShinobiShiftInAction_Load(object sender, EventArgs e)
+        {
+            //障害物を生成してフィールドに格納
+            var obstacle = new Obstacle(1100, 0, 100, 100, this);
+
+        }*/
     }
+
 }
+
+
+    
+      
+
+
+       
+
+
+

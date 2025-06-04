@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
            // this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+
             this.ScoreRecord = new System.Windows.Forms.TextBox();
             this.Player = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,10 +43,6 @@
            // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // Player
@@ -68,6 +65,8 @@
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
             // 
+            // label1
+
             // ScoreRecord
             // 
             this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
@@ -130,24 +129,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.Player);
             this.Name = "ShinobiShiftInAction";
             this.Text = "ShinobiShift";
             this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
-           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shift);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,11 +147,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox Player;
-        private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+
+        private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ScoreRecord;
         private System.Windows.Forms.Timer timer1;
