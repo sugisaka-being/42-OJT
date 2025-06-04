@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using static ShinobiSHift_Game.ShinobiShiftBooting;
 
 namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
         private int score = 0;
+        private bool isOnCeiling = false;
+
 
         public ShinobiShiftInAction()
         {
@@ -26,6 +28,8 @@ namespace ShinobiSHift_Game
 
             // フォームのロード時にタイマーを開始
             this.Load += ShinobiShiftInAction_Load;
+
+            this.KeyPreview = true;
         }
 
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
@@ -38,6 +42,26 @@ namespace ShinobiSHift_Game
             score += 5; // 1回ごとに5点加算 → 1秒で500点
 
             ScoreRecord.Text = score.ToString();
+        }
+
+        private void shift(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+
+                    isOnCeiling = !isOnCeiling;
+
+                if (isOnCeiling)
+                {
+                    Player.Location = new Point(playerX, ceilingY);
+                    Player.Size = new Size(49, 62);
+                }
+                else
+                {
+                    Player.Location = new Point(playerX, groundY);
+                    Player.Size = new Size(49, 62);
+                }
+            }
         }
     }
 }
