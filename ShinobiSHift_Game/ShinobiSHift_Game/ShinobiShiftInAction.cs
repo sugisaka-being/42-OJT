@@ -53,6 +53,15 @@ namespace ShinobiSHift_Game
             score += 5; // 1回ごとに5点加算 → 1秒で500点
 
             ScoreRecord.Text = score.ToString();
+
+            if (score >= 20000)
+            {
+                timer1.Stop(); // タイマー停止（必須）
+                this.Hide();   // 現在のフォームを隠す
+
+                ShinobiShiftClear clearForm = new ShinobiShiftClear();
+                clearForm.Show();
+            }
         }
 
         private void shift(object sender, KeyEventArgs e)
