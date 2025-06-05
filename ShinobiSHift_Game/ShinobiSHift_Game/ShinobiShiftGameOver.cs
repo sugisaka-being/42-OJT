@@ -13,15 +13,19 @@ namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftGameOver : Form
     {
-        public ShinobiShiftGameOver()
+        int finalScore;
+
+        public ShinobiShiftGameOver(int score)
         {
             InitializeComponent();
+            finalScore = score;//スコアをプレイ画面から受け取ってる
         }
 
         private void ShinobiShiftGameOver_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            
         }
     }
 }
