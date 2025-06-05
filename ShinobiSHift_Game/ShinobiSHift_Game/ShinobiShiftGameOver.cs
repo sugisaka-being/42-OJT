@@ -27,5 +27,29 @@ namespace ShinobiSHift_Game
             Player.Size = new Size(49, 62);
             
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 新しいフォームを作成
+            ShinobiShiftInAction InActionForm = new ShinobiShiftInAction();
+
+            // 新しいフォームを表示
+            InActionForm.Show();
+
+            // 現在のフォームを閉じる
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 新しいフォームを作成
+            ShinobiShiftBooting StartForm = new ShinobiShiftBooting();
+
+            // 新しいフォームを表示
+            StartForm.Show();
+
+            // 現在のフォームを閉じる
+            this.Hide();
+        }
     }
 }
