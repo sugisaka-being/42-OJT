@@ -17,16 +17,14 @@ namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
-        /* Obstacle obstacle;
-         public ShinobiShiftInAction()
-         {
-             InitializeComponent();
-             this.Load += ShinobiShiftInAction_Load;*/
 
         private int score = 0;
         private bool isOnCeiling = false;
+        List<Barrier> barriers = new List<Barrier>();
 
-        Obstacle obstacle;
+        Barrier barrier;
+        private Timer moveTimer;
+        //TimeoutException moveTimer;
         public ShinobiShiftInAction()
         {
             InitializeComponent();
@@ -45,8 +43,41 @@ namespace ShinobiSHift_Game
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
                             //障害物を生成してフィールドに格納
-            var obstacle = new Obstacle(1100, 0, 100, 100, this);
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                barriers.Add(new Barrier(1100 + (i * 400), 0, 200, 100, this));
+            }
+
+            moveTimer = new Timer();
+            moveTimer.Interval = 30;
+            moveTimer.Tick += MoveBarrier;
+            moveTimer.Start();
         }
+
+
+        private void MoveBarrier(object sender, EventArgs e)
+        {
+            for (int i = barriers.Count - 1; i >= 0; i--)
+            {
+                var b = barriers[i];
+                if (b.PictureBox == null) continue; // PictureBoxがnullの場合はスキップ
+
+                b.PictureBox.Left -= 5;
+
+                if (b.PictureBox.Right < 0)
+                {
+                    this.Controls.Remove(barriers[i].PictureBox);
+                    barriers.RemoveAt(i);//リストから障害物を削除
+                }
+            }
+        }
+    
+            
+        
+        
+        
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -82,14 +113,7 @@ namespace ShinobiSHift_Game
                     Player.Size = new Size(49, 62);
                 }
             }
-        }
-
-      /*  private void ShinobiShiftInAction_Load(object sender, EventArgs e)
-        {
-            //障害物を生成してフィールドに格納
-            var obstacle = new Obstacle(1100, 0, 100, 100, this);
-
-        }*/
+        }     
     }
 
 }
