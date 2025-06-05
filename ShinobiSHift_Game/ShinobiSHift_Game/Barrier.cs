@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace ShinobiSHift_Game
 {
-    public class Obstacle
+    public class Barrier
     {
         public PictureBox PictureBox { get; private set; }
 
-        public Obstacle(int x, int y, int width, int height, Control parent)
+        public Barrier(int x, int y, int width, int height, Control parent)
         {
             PictureBox = new PictureBox
             {
