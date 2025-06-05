@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
 
@@ -21,28 +15,22 @@ namespace ShinobiSHift_Game
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
-
         Barrier barrier;
         private Timer moveTimer;
-        //TimeoutException moveTimer;
+
         public ShinobiShiftInAction()
         {
             InitializeComponent();
-            this.Load += ShinobiShiftInAction_Load;
             timer1 = new Timer();
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
-
-            // フォームのロード時にタイマーを開始
-            this.Load += ShinobiShiftInAction_Load;
-
             this.KeyPreview = true;
         }
 
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
-                            //障害物を生成してフィールドに格納
+
 
 
             for (int i = 0; i < 3; i++)
@@ -64,7 +52,7 @@ namespace ShinobiSHift_Game
                 var b = barriers[i];
                 if (b.PictureBox == null) continue; // PictureBoxがnullの場合はスキップ
 
-                b.PictureBox.Left -= 5;
+                b.PictureBox.Left -= 15;
 
                 if (b.PictureBox.Right < 0)
                 {
@@ -73,17 +61,21 @@ namespace ShinobiSHift_Game
                 }
             }
         }
-    
-            
-        
-        
-        
+
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
             score += 5; // 1回ごとに5点加算 → 1秒で500点
-
             ScoreRecord.Text = score.ToString();
+
+            if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
+            {
+                timer1.Stop();
+                ShinobiShiftGameOver gameOverForm = new ShinobiShiftGameOver(score);//スコアをGameOverフォームに渡してる
+                gameOverForm.Show();
+                this.Hide();
+
+            }
 
             if (score >= 20000)
             {
@@ -113,17 +105,17 @@ namespace ShinobiSHift_Game
                     Player.Size = new Size(49, 62);
                 }
             }
-        }     
-    }
 
+        }
+    }
 }
 
 
-    
-      
 
 
-       
+
+
+
 
 
 
