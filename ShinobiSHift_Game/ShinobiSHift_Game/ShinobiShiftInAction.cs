@@ -25,7 +25,6 @@ namespace ShinobiSHift_Game
 
         private int score = 0;
         private bool isOnCeiling = false;
-        private PictureBox barrier;//【テスト用　不要なら削除OK】障害物の生成用変数(Playerの上の赤い四角)
 
         Obstacle obstacle;
         public ShinobiShiftInAction()
@@ -45,6 +44,8 @@ namespace ShinobiSHift_Game
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
+                            //障害物を生成してフィールドに格納
+            var obstacle = new Obstacle(1100, 0, 100, 100, this);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -52,6 +53,15 @@ namespace ShinobiSHift_Game
             score += 5; // 1回ごとに5点加算 → 1秒で500点
 
             ScoreRecord.Text = score.ToString();
+
+            if (score >= 20000)
+            {
+                timer1.Stop(); // タイマー停止
+                this.Hide();   // 現在のフォームを隠す
+
+                ShinobiShiftClear clearForm = new ShinobiShiftClear();
+                clearForm.Show();
+            }
         }
 
         private void shift(object sender, KeyEventArgs e)
@@ -73,6 +83,13 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+
+      /*  private void ShinobiShiftInAction_Load(object sender, EventArgs e)
+        {
+            //障害物を生成してフィールドに格納
+            var obstacle = new Obstacle(1100, 0, 100, 100, this);
+
+        }*/
     }
 
 }
