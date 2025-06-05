@@ -26,6 +26,18 @@ namespace ShinobiSHift_Game
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 新しいフォームを作成
+            ShinobiShiftRule RuleForm = new ShinobiShiftRule();
+
+            // 新しいフォームを表示
+            RuleForm.Show();
+
+            // 現在のフォームを閉じる
+            this.Hide();
+        }
     }
 }
 
