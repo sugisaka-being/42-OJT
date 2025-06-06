@@ -72,7 +72,8 @@ namespace ShinobiSHift_Game
 
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
-                timer1.Stop();
+                allTimerStop();
+
                 ShinobiShiftGameOver gameOverForm = new ShinobiShiftGameOver(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
@@ -81,7 +82,8 @@ namespace ShinobiSHift_Game
 
             if (score >= 20000)
             {
-                timer1.Stop(); // タイマー停止
+                allTimerStop();
+
                 this.Hide();   // 現在のフォームを隠す
 
                 ShinobiShiftClear clearForm = new ShinobiShiftClear();
@@ -107,6 +109,17 @@ namespace ShinobiSHift_Game
                     Player.Size = new Size(49, 62);
                 }
             }
+        }
+
+        private void allTimerStop()//【消さない方がいい】タイマーを停止し、リソースを開放する
+        {
+            timer1.Stop();
+            timer1.Dispose();
+            timer1 = null;
+
+            moveTimer.Stop();
+            moveTimer.Dispose();
+            moveTimer = null;
         }
     }
 }
