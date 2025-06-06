@@ -16,6 +16,7 @@ namespace ShinobiSHift_Game
         public ShinobiShiftClear()
         {
             InitializeComponent();
+            this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
         private void ShinobiShiftClear_Load(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace ShinobiSHift_Game
             InActionForm.Show();
 
             // 現在のフォームを閉じる
-            this.Hide();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,7 +46,21 @@ namespace ShinobiSHift_Game
             StartForm.Show();
 
             // 現在のフォームを閉じる
-            this.Hide();
+            this.Close();
+        }
+
+        public void ShinobiShiftClear_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true; // 一旦キャンセル
+
+            // 終了確認用のフォームをモーダルで表示
+            using (var confirm = new ExitForm())
+            {
+                if (confirm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Exit(); // 終了を実行
+                }
+            }
         }
     }
 }

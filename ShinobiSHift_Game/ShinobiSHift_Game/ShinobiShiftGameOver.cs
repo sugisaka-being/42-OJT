@@ -19,6 +19,7 @@ namespace ShinobiSHift_Game
         {
             InitializeComponent();
             finalScore = score;//スコアをプレイ画面から受け取ってる
+            this.FormClosing += ShinobiShiftGameOver_FormClosing;
         }
 
         private void ShinobiShiftGameOver_Load(object sender, EventArgs e)
@@ -36,8 +37,8 @@ namespace ShinobiSHift_Game
             // 新しいフォームを表示
             InActionForm.Show();
 
-            // 現在のフォームを閉じる
-            this.Hide();
+            // 現在のフォームを閉じる// 現在のフォームを隠すのか終了するのか迷う
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,8 +49,22 @@ namespace ShinobiSHift_Game
             // 新しいフォームを表示
             StartForm.Show();
 
-            // 現在のフォームを閉じる
-            this.Hide();
+            // 現在のフォームを閉じる// 現在のフォームを隠すのか終了するのか迷う
+            this.Close();
+        }
+
+        public void ShinobiShiftGameOver_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true; // 一旦キャンセル
+
+            // 終了確認用のフォームをモーダルで表示
+            using (var confirm = new ExitForm())
+            {
+                if (confirm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Exit(); // 終了を実行
+                }
+            }
         }
     }
 }
