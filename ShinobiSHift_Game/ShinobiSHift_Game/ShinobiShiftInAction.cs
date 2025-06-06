@@ -12,6 +12,7 @@ namespace ShinobiSHift_Game
     public partial class ShinobiShiftInAction : Form
     {
 
+
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
@@ -32,10 +33,12 @@ namespace ShinobiSHift_Game
             timer1.Start(); // フォーム表示と同時にタイマー開始
 
 
+            Random rnd = new Random();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 100; i++)
             {
-                barriers.Add(new Barrier(1100 + (i * 400), 0, 200, 100, this));
+                int a = rnd.Next(2) == 0 ? 0 : 250;
+                barriers.Add(new Barrier(1100 + (i * 400), a, 100, 100, this));
             }
 
             moveTimer = new Timer();
@@ -61,7 +64,6 @@ namespace ShinobiSHift_Game
                 }
             }
         }
-
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -105,7 +107,6 @@ namespace ShinobiSHift_Game
                     Player.Size = new Size(49, 62);
                 }
             }
-
         }
     }
 }
