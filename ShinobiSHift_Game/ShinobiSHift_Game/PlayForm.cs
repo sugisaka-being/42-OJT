@@ -29,13 +29,13 @@ namespace ShinobiLeap_Game
         private void ShinobiLeapInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
-            moveTimer = new Timer();//なぜこいつはここにあるのか？
+            moveTimer = new Timer();
             moveTimer.Interval = 30;
             moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
         }
-        
+
         private void CreateBarrier(object sender, EventArgs e)
         {
             if (barriers.Count == 0)
@@ -63,7 +63,7 @@ namespace ShinobiLeap_Game
                 var b = barriers[i];
                 if (b.PictureBox == null) continue; // PictureBoxがnullの場合はスキップ
 
-                b.PictureBox.Left -= 35;
+                b.PictureBox.Left -= 30;//ここで速さを変更
 
                 if (b.PictureBox.Right < 0)
                 {
@@ -72,7 +72,6 @@ namespace ShinobiLeap_Game
                 }
             }
         }
-        
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -80,12 +79,13 @@ namespace ShinobiLeap_Game
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            score += 5; // 1回ごとに5点加算 → 1秒で500点
+            score += 8; // 1回ごとに8点加算 → 1秒で800点
             ScoreRecord.Text = score.ToString();
 
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 allTimerStop();
+                int score = int.Parse(ScoreRecord.Text);
                 GameOverForm gameOverForm = new GameOverForm(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
@@ -94,8 +94,9 @@ namespace ShinobiLeap_Game
             if (score >= 20000)
             {
                 allTimerStop();
+                int score = int.Parse(ScoreRecord.Text);
                 this.Hide();   // 現在のフォームを隠す
-                ClearForm clearForm = new ClearForm();
+                ClearForm clearForm = new ClearForm(score);
                 clearForm.Show();
             }
         }

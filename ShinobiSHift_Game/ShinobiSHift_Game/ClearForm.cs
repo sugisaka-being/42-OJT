@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
 
@@ -13,9 +7,11 @@ namespace ShinobiLeap_Game
 {
     public partial class ClearForm : Form
     {
-        public ClearForm()
+        int finalScore;
+        public ClearForm(int score)
         {
             InitializeComponent();
+            finalScore = score;
             this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
@@ -23,16 +19,14 @@ namespace ShinobiLeap_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            ClearRecord.Text = $"Score；{finalScore}";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // 新しいフォームを作成
             PlayForm InActionForm = new PlayForm();
-
             // 新しいフォームを表示
             InActionForm.Show();
-
             // 現在のフォームを閉じる
             this.Hide();
         }
@@ -41,10 +35,8 @@ namespace ShinobiLeap_Game
         {
             // 新しいフォームを作成
             StartForm StartForm = new StartForm();
-
             // 新しいフォームを表示
             StartForm.Show();
-
             // 現在のフォームを閉じる
             this.Hide();
         }
@@ -55,4 +47,3 @@ namespace ShinobiLeap_Game
         }
     }
 }
-

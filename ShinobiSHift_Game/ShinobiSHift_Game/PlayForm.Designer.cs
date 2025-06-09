@@ -58,9 +58,10 @@
             // 
             // ScoreRecord
             // 
+            this.ScoreRecord.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
             this.ScoreRecord.Name = "ScoreRecord";
-            this.ScoreRecord.Size = new System.Drawing.Size(100, 19);
+            this.ScoreRecord.Size = new System.Drawing.Size(100, 22);
             this.ScoreRecord.TabIndex = 1;
             // 
             // label1
@@ -155,7 +156,7 @@
 
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox ScoreRecord;
         private System.Windows.Forms.Timer timer1;
+        internal System.Windows.Forms.TextBox ScoreRecord;
     }
 }
