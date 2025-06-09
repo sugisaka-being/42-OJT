@@ -35,8 +35,9 @@
             // 
             // exitButton
             // 
+            this.exitButton.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.Black;
-            this.exitButton.Location = new System.Drawing.Point(21, 157);
+            this.exitButton.Location = new System.Drawing.Point(12, 157);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 0;
@@ -46,10 +47,11 @@
             // 
             // notExitButton
             // 
+            this.notExitButton.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.notExitButton.ForeColor = System.Drawing.Color.Black;
-            this.notExitButton.Location = new System.Drawing.Point(102, 157);
+            this.notExitButton.Location = new System.Drawing.Point(97, 157);
             this.notExitButton.Name = "notExitButton";
-            this.notExitButton.Size = new System.Drawing.Size(70, 37);
+            this.notExitButton.Size = new System.Drawing.Size(75, 23);
             this.notExitButton.TabIndex = 1;
             this.notExitButton.Text = "no";
             this.notExitButton.UseVisualStyleBackColor = true;
@@ -58,10 +60,11 @@
             // ExitText
             // 
             this.ExitText.AutoSize = true;
+            this.ExitText.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitText.ForeColor = System.Drawing.Color.White;
-            this.ExitText.Location = new System.Drawing.Point(50, 44);
+            this.ExitText.Location = new System.Drawing.Point(41, 69);
             this.ExitText.Name = "ExitText";
-            this.ExitText.Size = new System.Drawing.Size(79, 12);
+            this.ExitText.Size = new System.Drawing.Size(108, 20);
             this.ExitText.TabIndex = 2;
             this.ExitText.Text = "終了しますか？";
             // 

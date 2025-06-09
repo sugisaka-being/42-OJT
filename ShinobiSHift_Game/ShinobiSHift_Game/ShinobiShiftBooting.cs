@@ -41,7 +41,7 @@ namespace ShinobiSHift_Game
         }
 
         public void ShinobiShiftBooting_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        /*{
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true; // 一旦キャンセル
@@ -49,13 +49,9 @@ namespace ShinobiSHift_Game
                 // 終了確認用のフォームをモーダルで表示
                 using (var confirm = new ExitForm())
                 {
-                    if (confirm.ShowDialog() == DialogResult.OK)
-                    {
-                        Application.Exit(); // 終了を実行
-                    }
-                }
-            }
+                    if (confirm.ShowDialog() == DialogResult.OK)*/
+        {
+            Application.Exit(); // 終了を実行
         }
     }
 }
-

@@ -40,12 +40,12 @@ namespace ShinobiSHift_Game
 
                 isInternalNavigation = true; // ← 遷移中フラグ
                 // 現在のフォームを閉じる（hideだと隠れているだけでApplication.Run()をコーディングしているBootingを閉じないとアプリケーションは終了しない）
-                this.Close();
+                this.Hide();
             }
         }
 
         public void ShinobiShiftRule_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        /*{
             if (!isInternalNavigation && e.CloseReason == CloseReason.UserClosing)
             {
                 //e.Cancel = true; // 一旦キャンセル
@@ -53,12 +53,9 @@ namespace ShinobiSHift_Game
                 // 終了確認用のフォームをモーダルで表示
                 using (var confirm = new ExitForm())
                 {
-                    if (confirm.ShowDialog() == DialogResult.OK)
-                    {
-                        Application.Exit(); // 終了を実行
-                    }
-                }
-            }
+                    if (confirm.ShowDialog() == DialogResult.OK)*/
+        {
+            Application.Exit(); // 終了を実行
         }
     }
 }
