@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-           // this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            // this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
 
             this.ScoreRecord = new System.Windows.Forms.TextBox();
@@ -40,7 +40,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +135,7 @@
             this.Text = "ShinobiShift";
             this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
 
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shift);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.space);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
 
             this.ScorePanel.ResumeLayout(false);

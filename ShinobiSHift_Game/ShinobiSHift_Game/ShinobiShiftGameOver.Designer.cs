@@ -1,6 +1,6 @@
 ﻿namespace ShinobiSHift_Game
 {
-    partial class ShinobiShiftGameOver
+    partial class ShinobiLeapGameOver
     {
         /// <summary>
         /// Required designer variable.
@@ -100,7 +100,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // ShinobiShiftGameOver
+            // ShinobiLeapGameOver
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
@@ -111,7 +111,7 @@
             this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ShinobiShiftGameOver";
+            this.Name = "ShinobiLeapGameOver";
             this.Text = "ShinobiShift";
             this.Load += new System.EventHandler(this.ShinobiShiftGameOver_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();

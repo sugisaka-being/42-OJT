@@ -5,14 +5,10 @@ using System.Linq;
 using System.Windows.Forms;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
-
-
 namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
-
-
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
@@ -27,6 +23,7 @@ namespace ShinobiSHift_Game
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
             this.KeyPreview = true;
+            this.FormClosing += ShinobiShiftInAction_FormClosing;
         }
 
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
@@ -38,6 +35,7 @@ namespace ShinobiSHift_Game
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
         }
+        
         private void CreateBarrier(object sender, EventArgs e)
         {
             if (barriers.Count == 0)
@@ -57,6 +55,7 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+
         private void MoveBarrier(object sender, EventArgs e)
         {
             for (int i = barriers.Count - 1; i >= 0; i--)
@@ -73,6 +72,7 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+        
         private void MoveTimer_Tick(object sender, EventArgs e)
         {
             throw new NotImplementedException();
@@ -86,31 +86,25 @@ namespace ShinobiSHift_Game
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 allTimerStop();
-
-                ShinobiShiftGameOver gameOverForm = new ShinobiShiftGameOver(score);//スコアをGameOverフォームに渡してる
+                ShinobiLeapGameOver gameOverForm = new ShinobiLeapGameOver(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
-
             }
 
             if (score >= 20000)
             {
                 allTimerStop();
-
                 this.Hide();   // 現在のフォームを隠す
-
                 ShinobiShiftClear clearForm = new ShinobiShiftClear();
                 clearForm.Show();
             }
         }
 
-        private void shift(object sender, KeyEventArgs e)
+        private void space(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.ShiftKey)
+            if (e.KeyCode == Keys.Space)
             {
-
                 isOnCeiling = !isOnCeiling;
-
                 if (isOnCeiling)
                 {
                     Player.Location = new Point(playerX, ceilingY);
@@ -134,15 +128,10 @@ namespace ShinobiSHift_Game
             moveTimer.Dispose();
             moveTimer = null;
         }
+
+        public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
