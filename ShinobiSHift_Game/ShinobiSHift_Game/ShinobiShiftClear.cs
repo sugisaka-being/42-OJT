@@ -16,6 +16,7 @@ namespace ShinobiSHift_Game
         public ShinobiShiftClear()
         {
             InitializeComponent();
+            this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
         private void ShinobiShiftClear_Load(object sender, EventArgs e)
@@ -47,5 +48,11 @@ namespace ShinobiSHift_Game
             // 現在のフォームを閉じる
             this.Hide();
         }
+
+        public void ShinobiShiftClear_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
+

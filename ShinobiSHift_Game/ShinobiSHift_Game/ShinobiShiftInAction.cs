@@ -22,6 +22,7 @@ namespace ShinobiSHift_Game
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
             this.KeyPreview = true;
+            this.FormClosing += ShinobiShiftInAction_FormClosing;
         }
 
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
@@ -106,15 +107,10 @@ namespace ShinobiSHift_Game
             moveTimer.Dispose();
             moveTimer = null;
         }
+
+        public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-

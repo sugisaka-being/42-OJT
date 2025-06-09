@@ -15,6 +15,7 @@ namespace ShinobiSHift_Game
         public ShinobiShiftBooting()
         {
             InitializeComponent();
+            this.FormClosing += ShinobiShiftBooting_FormClosing;
         }
 
         public static int playerX = 158;
@@ -38,6 +39,10 @@ namespace ShinobiSHift_Game
             // 現在のフォームを閉じる
             this.Hide();
         }
+
+        public void ShinobiShiftBooting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
-
