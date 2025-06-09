@@ -90,15 +90,15 @@
             // 
             // ClearRecord
             // 
+            this.ClearRecord.AutoSize = true;
             this.ClearRecord.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearRecord.ForeColor = System.Drawing.Color.White;
-            this.ClearRecord.Location = new System.Drawing.Point(540, 141);
+            this.ClearRecord.Location = new System.Drawing.Point(503, 140);
             this.ClearRecord.Name = "ClearRecord";
-            this.ClearRecord.Size = new System.Drawing.Size(133, 32);
+            this.ClearRecord.Size = new System.Drawing.Size(99, 39);
             this.ClearRecord.TabIndex = 14;
             this.ClearRecord.Text = "label3";
             // 
-            // ShinobiShiftClear
             // ClearForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -115,6 +115,7 @@
             this.Load += new System.EventHandler(this.ShinobiLeapClear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
