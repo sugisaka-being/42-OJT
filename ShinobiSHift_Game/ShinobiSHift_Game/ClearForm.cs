@@ -19,7 +19,7 @@ namespace ShinobiLeap_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
-            ClearRecord.Text = $"Score；{finalScore}";
+            ClearRecord.Text = $"Score：{finalScore}";
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -91,7 +91,7 @@ namespace ShinobiLeap_Game
                 this.Hide();
             }
 
-            if (score >= 200)
+            if (score >= 20000)
             {
                 allTimerStop();
                 int score = int.Parse(ScoreRecord.Text);

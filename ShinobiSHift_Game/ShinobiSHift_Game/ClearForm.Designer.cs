@@ -93,7 +93,7 @@
             this.ClearRecord.AutoSize = true;
             this.ClearRecord.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearRecord.ForeColor = System.Drawing.Color.White;
-            this.ClearRecord.Location = new System.Drawing.Point(503, 140);
+            this.ClearRecord.Location = new System.Drawing.Point(498, 141);
             this.ClearRecord.Name = "ClearRecord";
             this.ClearRecord.Size = new System.Drawing.Size(99, 39);
             this.ClearRecord.TabIndex = 14;
