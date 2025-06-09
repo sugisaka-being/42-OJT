@@ -1,6 +1,6 @@
-﻿namespace ShinobiLeap_Game
+﻿namespace ShinobiSHift_Game
 {
-    partial class StartForm
+    partial class ShinobiShiftBooting
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -44,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(539, 150);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ShinobiLeap";
+            this.label1.Text = "ShinobiShift";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
@@ -75,7 +75,7 @@
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 2;
             // 
-            // StartForm
+            // ShinobiShiftBooting
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
@@ -86,9 +86,9 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "StartForm";
-            this.Text = "ShinobiLeap";
-            this.Load += new System.EventHandler(this.StartForm_Load);
+            this.Name = "ShinobiShiftBooting";
+            this.Text = "ShinobiShift";
+            this.Load += new System.EventHandler(this.ShinobiShiftBooting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
 

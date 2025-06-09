@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
-    public partial class StartForm : Form
+    public partial class ShinobiShiftBooting : Form
     {
-        public StartForm()
+        public ShinobiShiftBooting()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace ShinobiLeap_Game
         public static int groundY = 272;
         public static int ceilingY = 0;
 
-        private void StartForm_Load(object sender, EventArgs e)
+        private void ShinobiShiftBooting_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
@@ -30,7 +30,7 @@ namespace ShinobiLeap_Game
         private void button1_Click(object sender, EventArgs e)
         {
             // 新しいフォームを作成
-            RuleForm RuleForm = new RuleForm();
+            ShinobiShiftRule RuleForm = new ShinobiShiftRule();
 
             // 新しいフォームを表示
             RuleForm.Show();

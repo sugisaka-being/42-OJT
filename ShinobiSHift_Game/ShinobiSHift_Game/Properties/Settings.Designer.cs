@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShinobiLeap_Game.Properties
+namespace ShinobiSHift_Game.Properties
 {
 
 

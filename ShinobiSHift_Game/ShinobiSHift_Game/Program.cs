@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
     internal static class Program
     {
@@ -17,11 +17,11 @@ namespace ShinobiLeap_Game
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //動作確認用           
-            Application.Run(new StartForm());
-           // Application.Run(new ShinobiLeapRule());
-            //Application.Run(new ShinobiLeapInAction());
-            //Application.Run(new ShinobiLeapGameOver());
-            //Application.Run(new ShinobiLeapClear());
+            Application.Run(new ShinobiShiftBooting());
+           // Application.Run(new ShinobiShiftRule());
+            //Application.Run(new ShinobiShiftInAction());
+            //Application.Run(new ShinobiShiftGameOver());
+            //Application.Run(new ShinobiShiftClear());
 
         }
     }

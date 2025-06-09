@@ -1,6 +1,6 @@
-﻿namespace ShinobiLeap_Game
+﻿namespace ShinobiSHift_Game
 {
-    partial class RuleForm
+    partial class ShinobiShiftRule
     {
         /// <summary>
         /// Required designer variable.
@@ -110,7 +110,7 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "-SPACEで開始-";
             // 
-            // RuleForm
+            // ShinobiShiftRule
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
@@ -123,9 +123,9 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
-            this.Name = "RuleForm";
+            this.Name = "ShinobiShiftRule";
             this.Text = "ShinobiLeap";
-            this.Load += new System.EventHandler(this.ShinobiLeapRule_Load);
+            this.Load += new System.EventHandler(this.ShinobiShiftRule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

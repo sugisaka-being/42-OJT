@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using static ShinobiLeap_Game.StartForm;
+using static ShinobiSHift_Game.ShinobiShiftBooting;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
-    public partial class PlayForm : Form
+    public partial class ShinobiShiftInAction : Form
     {
         private int score = 0;
         private bool isOnCeiling = false;
@@ -15,7 +15,7 @@ namespace ShinobiLeap_Game
         Barrier barrier;
         private Timer moveTimer;
 
-        public PlayForm()
+        public ShinobiShiftInAction()
         {
             InitializeComponent();
             timer1 = new Timer();
@@ -24,7 +24,7 @@ namespace ShinobiLeap_Game
             this.KeyPreview = true;
         }
 
-        private void ShinobiLeapInAction_Load(object sender, EventArgs e)
+        private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
             Random rnd = new Random();
@@ -64,7 +64,7 @@ namespace ShinobiLeap_Game
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 allTimerStop();
-                GameOverForm gameOverForm = new GameOverForm(score);//スコアをGameOverフォームに渡してる
+                ShinobiLeapGameOver gameOverForm = new ShinobiLeapGameOver(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
             }
@@ -73,7 +73,7 @@ namespace ShinobiLeap_Game
             {
                 allTimerStop();
                 this.Hide();   // 現在のフォームを隠す
-                ClearForm clearForm = new ClearForm();
+                ShinobiShiftClear clearForm = new ShinobiShiftClear();
                 clearForm.Show();
             }
         }

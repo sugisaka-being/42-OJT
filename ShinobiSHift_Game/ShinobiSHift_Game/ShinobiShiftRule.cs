@@ -7,30 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ShinobiLeap_Game.StartForm;
+using static ShinobiSHift_Game.ShinobiShiftBooting;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
-    public partial class RuleForm : Form
+    public partial class ShinobiShiftRule : Form
     {
-        public RuleForm()
+        public ShinobiShiftRule()
         {
             InitializeComponent();
-            this.KeyDown += ShinobiLeap_KeyDown;
+            this.KeyDown += ShinobiShift_KeyDown;
         }
 
-        private void ShinobiLeapRule_Load(object sender, EventArgs e)
+        private void ShinobiShiftRule_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
         }
 
-        private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
+        private void ShinobiShift_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
             { 
                 // 新しいフォームを作成
-                PlayForm InactionForm = new PlayForm();
+                ShinobiShiftInAction InactionForm = new ShinobiShiftInAction();
 
                 // 新しいフォームを作成い
                 InactionForm.Show();
