@@ -1,6 +1,6 @@
-﻿namespace ShinobiSHift_Game
+﻿namespace ShinobiLeap_Game
 {
-    partial class ShinobiShiftInAction
+    partial class PlayForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,31 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-           // this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
-
             this.ScoreRecord = new System.Windows.Forms.TextBox();
-            this.Player = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Player = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Player
-            // 
-            this.Player.BackColor = System.Drawing.Color.Fuchsia;
-            this.Player.Location = new System.Drawing.Point(158, 276);
-            this.Player.Name = "Player";
-            this.Player.Size = new System.Drawing.Size(49, 62);
-            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Player.TabIndex = 5;
-            this.Player.TabStop = false;
             // 
             // ScorePanel
             // 
@@ -65,8 +56,6 @@
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
             // 
-            // label1
-
             // ScoreRecord
             // 
             this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
@@ -83,6 +72,16 @@
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Score :";
+            // 
+            // Player
+            // 
+            this.Player.BackColor = System.Drawing.Color.Fuchsia;
+            this.Player.Location = new System.Drawing.Point(158, 276);
+            this.Player.Name = "Player";
+            this.Player.Size = new System.Drawing.Size(49, 62);
+            this.Player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Player.TabIndex = 5;
+            this.Player.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -124,22 +123,24 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // ShinobiShiftInAction
+            // PlayForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
             this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.Player);
-            this.Name = "ShinobiShiftInAction";
-            this.Text = "ShinobiShift";
-            this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
-
+            this.Name = "PlayForm";
+            this.Text = "ShinobiLeap";
+            this.Load += new System.EventHandler(this.ShinobiLeapInAction_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.space);
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
-
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
