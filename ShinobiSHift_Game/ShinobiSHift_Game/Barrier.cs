@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
     public class Barrier
     {

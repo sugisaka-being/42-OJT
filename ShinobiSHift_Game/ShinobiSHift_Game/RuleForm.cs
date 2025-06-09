@@ -7,38 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ShinobiSHift_Game.ShinobiShiftBooting;
+using static ShinobiLeap_Game.StartForm;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
-    public partial class ShinobiShiftRule : Form
+    public partial class RuleForm : Form
     {
-        private bool isInternalNavigation = false;
-
-        public ShinobiShiftRule()
+        public RuleForm()
         {
             InitializeComponent();
-            this.KeyDown += ShinobiShift_KeyDown;
+            this.KeyDown += ShinobiLeap_KeyDown;
             this.FormClosing += ShinobiShiftRule_FormClosing;
         }
 
-        private void ShinobiShiftRule_Load(object sender, EventArgs e)
+        private void ShinobiLeapRule_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
         }
 
-        private void ShinobiShift_KeyDown(object sender, KeyEventArgs e)
+        private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
             { 
                 // 新しいフォームを作成
-                ShinobiShiftInAction InactionForm = new ShinobiShiftInAction();
+                PlayForm InactionForm = new PlayForm();
 
                 // 新しいフォームを作成い
                 InactionForm.Show();
 
-                isInternalNavigation = true; // ← 遷移中フラグ
                 // 現在のフォームを閉じる（hideだと隠れているだけでApplication.Run()をコーディングしているBootingを閉じないとアプリケーションは終了しない）
                 this.Hide();
             }
