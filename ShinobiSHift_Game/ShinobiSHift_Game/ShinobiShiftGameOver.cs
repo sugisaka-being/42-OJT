@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
@@ -27,6 +21,7 @@ namespace ShinobiSHift_Game
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
 
+            GameOverRecord.Text = $"Score；{finalScore}";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -59,4 +54,3 @@ namespace ShinobiSHift_Game
         }
     }
 }
-

@@ -17,7 +17,6 @@ namespace ShinobiSHift_Game
             InitializeComponent();
             this.FormClosing += ShinobiShiftBooting_FormClosing;
         }
-
         public static int playerX = 158;
         public static int groundY = 272;
         public static int ceilingY = 0;

@@ -32,8 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ClearRecord = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,18 +76,6 @@
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 10;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(429, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 50);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Score : ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
@@ -100,16 +88,26 @@
             this.label1.Text = "Nice run!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ClearRecord
+            // 
+            this.ClearRecord.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearRecord.ForeColor = System.Drawing.Color.White;
+            this.ClearRecord.Location = new System.Drawing.Point(540, 141);
+            this.ClearRecord.Name = "ClearRecord";
+            this.ClearRecord.Size = new System.Drawing.Size(133, 32);
+            this.ClearRecord.TabIndex = 14;
+            this.ClearRecord.Text = "label3";
+            // 
             // ShinobiShiftClear
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
+            this.Controls.Add(this.ClearRecord);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Player);
             this.Controls.Add(this.ScorePanel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ShinobiShiftClear";
             this.Text = "ShinobiLeap";
@@ -125,7 +123,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ClearRecord;
     }
 }

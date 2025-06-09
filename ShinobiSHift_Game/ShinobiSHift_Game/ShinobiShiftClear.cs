@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
@@ -13,9 +7,12 @@ namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftClear : Form
     {
-        public ShinobiShiftClear()
+        int finalScore;
+
+        public ShinobiShiftClear(int score)
         {
             InitializeComponent();
+            finalScore = score;
             this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
@@ -23,16 +20,15 @@ namespace ShinobiSHift_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            ClearRecord.Text = $"Score；{finalScore}";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // 新しいフォームを作成
             ShinobiShiftInAction InActionForm = new ShinobiShiftInAction();
-
             // 新しいフォームを表示
             InActionForm.Show();
-
             // 現在のフォームを閉じる
             this.Hide();
         }
@@ -41,10 +37,8 @@ namespace ShinobiSHift_Game
         {
             // 新しいフォームを作成
             ShinobiShiftBooting StartForm = new ShinobiShiftBooting();
-
             // 新しいフォームを表示
             StartForm.Show();
-
             // 現在のフォームを閉じる
             this.Hide();
         }
@@ -55,4 +49,3 @@ namespace ShinobiSHift_Game
         }
     }
 }
-

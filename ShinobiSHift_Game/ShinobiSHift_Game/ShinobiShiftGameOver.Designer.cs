@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.ScorePanel = new System.Windows.Forms.Panel();
             this.Player = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.GameOverRecord = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,18 +48,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Try again...";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(437, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 50);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Score : ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ScorePanel
             // 
@@ -100,16 +88,27 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // GameOverRecord
+            // 
+            this.GameOverRecord.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameOverRecord.ForeColor = System.Drawing.Color.White;
+            this.GameOverRecord.Location = new System.Drawing.Point(515, 145);
+            this.GameOverRecord.MaximumSize = new System.Drawing.Size(200, 0);
+            this.GameOverRecord.Name = "GameOverRecord";
+            this.GameOverRecord.Size = new System.Drawing.Size(200, 37);
+            this.GameOverRecord.TabIndex = 8;
+            this.GameOverRecord.Text = "2000\r\n";
+            // 
             // ShinobiLeapGameOver
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
+            this.Controls.Add(this.GameOverRecord);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Player);
             this.Controls.Add(this.ScorePanel);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ShinobiLeapGameOver";
             this.Text = "ShinobiShift";
@@ -122,10 +121,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label GameOverRecord;
     }
 }
