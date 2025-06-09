@@ -50,13 +50,6 @@ namespace ShinobiSHift_Game
         }
 
         public void ShinobiShiftClear_FormClosing(object sender, FormClosingEventArgs e)
-        /*{
-            e.Cancel = true; // 一旦キャンセル
-
-            // 終了確認用のフォームをモーダルで表示
-            using (var confirm = new ExitForm())
-            {
-                if (confirm.ShowDialog() == DialogResult.OK)*/
         {
             Application.Exit(); // 終了を実行
         }
