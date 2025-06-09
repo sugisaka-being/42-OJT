@@ -34,11 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-
-           // ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-        //    this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
-
             this.SuspendLayout();
             // 
             // label1
@@ -76,9 +72,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(222, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1244, 54);
+            this.label2.Size = new System.Drawing.Size(823, 36);
             this.label2.TabIndex = 6;
-            this.label2.Text = "2125年...彼は重力を操るスーツ《SHIFT》を纏う、唯一のエージェント。";
+            this.label2.Text = "2125年...彼は重力を操るスーツ《AG LEAP》を纏う、唯一のエージェント。";
             // 
             // label3
             // 
@@ -87,9 +83,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(291, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1038, 54);
+            this.label3.Size = new System.Drawing.Size(674, 36);
             this.label3.TabIndex = 7;
-            this.label3.Text = "操作は、SHIFTキーひとつ。君は天井も走ることができる。";
+            this.label3.Text = "操作は、SPACEキーひとつ。君は天井も走ることができる。";
             // 
             // label4
             // 
@@ -98,7 +94,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(333, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(873, 54);
+            this.label4.Size = new System.Drawing.Size(563, 36);
             this.label4.TabIndex = 8;
             this.label4.Text = "迫りくる障害物を避け、スコア20000を目指せ。";
             // 
@@ -109,9 +105,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(952, 288);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(337, 65);
+            this.label5.Size = new System.Drawing.Size(229, 43);
             this.label5.TabIndex = 9;
-            this.label5.Text = "-SHIFTで開始-";
+            this.label5.Text = "-SPACEで開始-";
             // 
             // ShinobiShiftRule
             // 
@@ -127,15 +123,9 @@
             this.Controls.Add(this.label1);
             this.KeyPreview = true;
             this.Name = "ShinobiShiftRule";
-            this.Text = "ShinobiShift";
-
-           
-         //   ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-
+            this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiShiftRule_Load);
-         //   this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShinobiShiftRule_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

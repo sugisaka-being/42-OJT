@@ -5,13 +5,10 @@ using System.Linq;
 using System.Windows.Forms;
 using static ShinobiSHift_Game.ShinobiShiftBooting;
 
-
-
 namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftInAction : Form
     {
-
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
@@ -31,12 +28,11 @@ namespace ShinobiSHift_Game
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
-
-
-
-            for (int i = 0; i < 3; i++)
+            Random rnd = new Random();
+            for (int i = 0; i < 100; i++)
             {
-                barriers.Add(new Barrier(1100 + (i * 400), 0, 200, 100, this));
+                int a = rnd.Next(2) == 0 ? 0 : 250;
+                barriers.Add(new Barrier(1100 + (i * 400), a, 100, 100, this));
             }
 
             moveTimer = new Timer();
@@ -44,7 +40,6 @@ namespace ShinobiSHift_Game
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
         }
-
 
         private void MoveBarrier(object sender, EventArgs e)
         {
@@ -62,8 +57,6 @@ namespace ShinobiSHift_Game
                 }
             }
         }
-
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             score += 5; // 1回ごとに5点加算 → 1秒で500点
@@ -71,30 +64,26 @@ namespace ShinobiSHift_Game
 
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
-                timer1.Stop();
-                ShinobiShiftGameOver gameOverForm = new ShinobiShiftGameOver(score);//スコアをGameOverフォームに渡してる
+                allTimerStop();
+                ShinobiLeapGameOver gameOverForm = new ShinobiLeapGameOver(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
-                this.Hide();// 現在のフォームを隠すのか終了するのか迷う
-
+                this.Hide();
             }
 
             if (score >= 20000)
             {
-                timer1.Stop(); // タイマー停止
-                this.Hide();   // 現在のフォームを隠すのか終了するのか迷う
-
+                allTimerStop();
+                this.Hide();   // 現在のフォームを隠す
                 ShinobiShiftClear clearForm = new ShinobiShiftClear();
                 clearForm.Show();
             }
         }
 
-        private void shift(object sender, KeyEventArgs e)
+        private void space(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.ShiftKey)
+            if (e.KeyCode == Keys.Space)
             {
-
                 isOnCeiling = !isOnCeiling;
-
                 if (isOnCeiling)
                 {
                     Player.Location = new Point(playerX, ceilingY);
@@ -106,7 +95,17 @@ namespace ShinobiSHift_Game
                     Player.Size = new Size(49, 62);
                 }
             }
+        }
 
+        private void allTimerStop()//【消さない方がいい】タイマーを停止し、リソースを開放する
+        {
+            timer1.Stop();
+            timer1.Dispose();
+            timer1 = null;
+
+            moveTimer.Stop();
+            moveTimer.Dispose();
+            moveTimer = null;
         }
 
         public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)
@@ -115,22 +114,3 @@ namespace ShinobiSHift_Game
         }
     }
 }
-
-
-/*  private void ShinobiShiftInAction_Load(object sender, EventArgs e)
-  {
-      //障害物を生成してフィールドに格納
-      var obstacle = new Obstacle(1100, 0, 100, 100, this);
-
-  }*/
-
-
-
-
-
-
-
-
-
-
-

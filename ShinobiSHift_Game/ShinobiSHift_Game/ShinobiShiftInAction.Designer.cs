@@ -135,7 +135,7 @@
             this.Text = "ShinobiShift";
             this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
 
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shift);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.space);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
 
             this.ScorePanel.ResumeLayout(false);
