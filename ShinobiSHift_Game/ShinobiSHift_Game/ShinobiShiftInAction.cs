@@ -14,6 +14,7 @@ namespace ShinobiSHift_Game
         List<Barrier> barriers = new List<Barrier>();
         Barrier barrier;
         private Timer moveTimer;
+        private Random rnd = new Random();
 
         public ShinobiShiftInAction()
         {
@@ -22,22 +23,37 @@ namespace ShinobiSHift_Game
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
             this.KeyPreview = true;
+            this.FormClosing += ShinobiShiftInAction_FormClosing;
         }
 
         private void ShinobiShiftInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
-            Random rnd = new Random();
-            for (int i = 0; i < 100; i++)
-            {
-                int a = rnd.Next(2) == 0 ? 0 : 250;
-                barriers.Add(new Barrier(1100 + (i * 400), a, 100, 100, this));
-            }
-
-            moveTimer = new Timer();
+            moveTimer = new Timer();//なぜこいつはここにあるのか？
             moveTimer.Interval = 30;
+            moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
+        }
+        
+        private void CreateBarrier(object sender, EventArgs e)
+        {
+            if (barriers.Count == 0)
+            {
+                while (barriers.Count <= 10)
+                {
+                    int a = rnd.Next(2) == 0 ? 0 : 250;
+                    barriers.Add(new Barrier(1600 + (barriers.Count * 400), a, 100, 100, this));
+                }
+            }
+            else
+            {
+                while (barriers.Count <= 10)
+                {
+                    int a = rnd.Next(2) == 0 ? 0 : 250;
+                    barriers.Add(new Barrier(400 + (barriers.Count * 400), a, 100, 100, this));
+                }
+            }
         }
 
         private void MoveBarrier(object sender, EventArgs e)
@@ -47,7 +63,7 @@ namespace ShinobiSHift_Game
                 var b = barriers[i];
                 if (b.PictureBox == null) continue; // PictureBoxがnullの場合はスキップ
 
-                b.PictureBox.Left -= 15;
+                b.PictureBox.Left -= 35;
 
                 if (b.PictureBox.Right < 0)
                 {
@@ -56,6 +72,12 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+        
+        private void MoveTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void Timer1_Tick(object sender, EventArgs e)
         {
             score += 5; // 1回ごとに5点加算 → 1秒で500点
@@ -106,15 +128,10 @@ namespace ShinobiSHift_Game
             moveTimer.Dispose();
             moveTimer = null;
         }
+
+        public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-

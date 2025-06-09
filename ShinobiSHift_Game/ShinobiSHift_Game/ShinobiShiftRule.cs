@@ -13,10 +13,13 @@ namespace ShinobiSHift_Game
 {
     public partial class ShinobiShiftRule : Form
     {
+        private bool isInternalNavigation = false;
+
         public ShinobiShiftRule()
         {
             InitializeComponent();
             this.KeyDown += ShinobiShift_KeyDown;
+            this.FormClosing += ShinobiShiftRule_FormClosing;
         }
 
         private void ShinobiShiftRule_Load(object sender, EventArgs e)
@@ -35,9 +38,15 @@ namespace ShinobiSHift_Game
                 // 新しいフォームを作成い
                 InactionForm.Show();
 
-                // 現在のフォームを閉じる
+                isInternalNavigation = true; // ← 遷移中フラグ
+                // 現在のフォームを閉じる（hideだと隠れているだけでApplication.Run()をコーディングしているBootingを閉じないとアプリケーションは終了しない）
                 this.Hide();
             }
+        }
+
+        public void ShinobiShiftRule_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
         }
     }
 }
