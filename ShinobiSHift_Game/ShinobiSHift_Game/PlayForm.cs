@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using static ShinobiSHift_Game.ShinobiShiftBooting;
+using static ShinobiLeap_Game.StartForm;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
-    public partial class ShinobiShiftInAction : Form
+    public partial class PlayForm : Form
     {
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
         Barrier barrier;
         private Timer moveTimer;
+        private Random rnd = new Random();
 
-        public ShinobiShiftInAction()
+        public PlayForm()
         {
             InitializeComponent();
             timer1 = new Timer();
@@ -25,19 +26,34 @@ namespace ShinobiSHift_Game
             this.FormClosing += ShinobiShiftInAction_FormClosing;
         }
 
-        private void ShinobiShiftInAction_Load(object sender, EventArgs e)
+        private void ShinobiLeapInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
-            Random rnd = new Random();
-            for (int i = 0; i < 100; i++)
-            {
-                int a = rnd.Next(2) == 0 ? 0 : 250;
-                barriers.Add(new Barrier(1100 + (i * 400), a, 100, 100, this));
-            }
             moveTimer = new Timer();
             moveTimer.Interval = 30;
+            moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
+        }
+
+        private void CreateBarrier(object sender, EventArgs e)
+        {
+            if (barriers.Count == 0)
+            {
+                while (barriers.Count <= 10)
+                {
+                    int a = rnd.Next(2) == 0 ? 0 : 250;
+                    barriers.Add(new Barrier(1600 + (barriers.Count * 400), a, 100, 100, this));
+                }
+            }
+            else
+            {
+                while (barriers.Count <= 10)
+                {
+                    int a = rnd.Next(2) == 0 ? 0 : 250;
+                    barriers.Add(new Barrier(400 + (barriers.Count * 400), a, 100, 100, this));
+                }
+            }
         }
 
         private void MoveBarrier(object sender, EventArgs e)
@@ -46,7 +62,9 @@ namespace ShinobiSHift_Game
             {
                 var b = barriers[i];
                 if (b.PictureBox == null) continue; // PictureBoxがnullの場合はスキップ
-                b.PictureBox.Left -= 25;
+
+                b.PictureBox.Left -= 30;//ここで速さを変更
+
                 if (b.PictureBox.Right < 0)
                 {
                     this.Controls.Remove(barriers[i].PictureBox);
@@ -54,17 +72,21 @@ namespace ShinobiSHift_Game
                 }
             }
         }
+        private void MoveTimer_Tick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
             score += 8; // 1回ごとに8点加算 → 1秒で800点
             ScoreRecord.Text = score.ToString();
-            
+
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 allTimerStop();
                 int score = int.Parse(ScoreRecord.Text);
-                ShinobiLeapGameOver gameOverForm = new ShinobiLeapGameOver(score);//スコアをGameOverフォームに渡してる
+                GameOverForm gameOverForm = new GameOverForm(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
             }
@@ -74,7 +96,7 @@ namespace ShinobiSHift_Game
                 allTimerStop();
                 int score = int.Parse(ScoreRecord.Text);
                 this.Hide();   // 現在のフォームを隠す
-                ShinobiShiftClear clearForm = new ShinobiShiftClear(score);//スコアをClearフォームに渡してる
+                ClearForm clearForm = new ClearForm(score);
                 clearForm.Show();
             }
         }

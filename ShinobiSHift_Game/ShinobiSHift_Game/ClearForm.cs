@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static ShinobiSHift_Game.ShinobiShiftBooting;
+using static ShinobiLeap_Game.StartForm;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
-    public partial class ShinobiShiftClear : Form
+    public partial class ClearForm : Form
     {
         int finalScore;
-
-        public ShinobiShiftClear(int score)
+        public ClearForm(int score)
         {
             InitializeComponent();
             finalScore = score;
             this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
-        private void ShinobiShiftClear_Load(object sender, EventArgs e)
+        private void ShinobiLeapClear_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
@@ -25,8 +24,7 @@ namespace ShinobiSHift_Game
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // 新しいフォームを作成
-            ShinobiShiftInAction InActionForm = new ShinobiShiftInAction();
+            PlayForm InActionForm = new PlayForm();
             // 新しいフォームを表示
             InActionForm.Show();
             // 現在のフォームを閉じる
@@ -36,7 +34,7 @@ namespace ShinobiSHift_Game
         private void button1_Click(object sender, EventArgs e)
         {
             // 新しいフォームを作成
-            ShinobiShiftBooting StartForm = new ShinobiShiftBooting();
+            StartForm StartForm = new StartForm();
             // 新しいフォームを表示
             StartForm.Show();
             // 現在のフォームを閉じる

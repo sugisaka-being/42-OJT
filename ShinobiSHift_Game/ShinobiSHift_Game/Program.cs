@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace ShinobiSHift_Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShinobiShiftBooting());
+            Application.Run(new StartForm());
         }
     }
 }

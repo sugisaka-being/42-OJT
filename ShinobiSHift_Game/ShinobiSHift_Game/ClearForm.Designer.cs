@@ -1,6 +1,6 @@
-﻿namespace ShinobiSHift_Game
+﻿namespace ShinobiLeap_Game
 {
-    partial class ShinobiShiftClear
+    partial class ClearForm
     {
         /// <summary>
         /// Required designer variable.
@@ -99,6 +99,7 @@
             this.ClearRecord.Text = "label3";
             // 
             // ShinobiShiftClear
+            // ClearForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
@@ -109,9 +110,9 @@
             this.Controls.Add(this.Player);
             this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.label1);
-            this.Name = "ShinobiShiftClear";
+            this.Name = "ClearForm";
             this.Text = "ShinobiLeap";
-            this.Load += new System.EventHandler(this.ShinobiShiftClear_Load);
+            this.Load += new System.EventHandler(this.ShinobiLeapClear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);
 

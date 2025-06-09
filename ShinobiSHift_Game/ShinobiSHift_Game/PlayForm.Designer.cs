@@ -1,6 +1,6 @@
-﻿namespace ShinobiSHift_Game
+﻿namespace ShinobiLeap_Game
 {
-    partial class ShinobiShiftInAction
+    partial class PlayForm
     {
         /// <summary>
         /// Required designer variable.
@@ -124,16 +124,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // ShinobiShiftInAction
+            // PlayForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
             this.Controls.Add(this.ScorePanel);
             this.Controls.Add(this.Player);
-            this.Name = "ShinobiShiftInAction";
-            this.Text = "ShinobiShift";
-            this.Load += new System.EventHandler(this.ShinobiShiftInAction_Load);
+            this.Name = "PlayForm";
+            this.Text = "ShinobiLeap";
+            this.Load += new System.EventHandler(this.ShinobiLeapInAction_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.space);
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
