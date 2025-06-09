@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ShinobiSHift_Game.ShinobiShiftBooting;
+using static ShinobiLeap_Game.StartForm;
 
-namespace ShinobiSHift_Game
+namespace ShinobiLeap_Game
 {
-    public partial class ShinobiLeapGameOver : Form
+    public partial class GameOverForm : Form
     {
         int finalScore;
 
-        public ShinobiLeapGameOver(int score)
+        public GameOverForm(int score)
         {
             InitializeComponent();
             finalScore = score;//スコアをプレイ画面から受け取ってる
         }
 
-        private void ShinobiShiftGameOver_Load(object sender, EventArgs e)
+        private void ShinobiLeapGameOver_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
@@ -31,7 +31,7 @@ namespace ShinobiSHift_Game
         private void button2_Click(object sender, EventArgs e)
         {
             // 新しいフォームを作成
-            ShinobiShiftInAction InActionForm = new ShinobiShiftInAction();
+            PlayForm InActionForm = new PlayForm();
 
             // 新しいフォームを表示
             InActionForm.Show();
@@ -43,7 +43,7 @@ namespace ShinobiSHift_Game
         private void button1_Click(object sender, EventArgs e)
         {
             // 新しいフォームを作成
-            ShinobiShiftBooting StartForm = new ShinobiShiftBooting();
+            StartForm StartForm = new StartForm();
 
             // 新しいフォームを表示
             StartForm.Show();
