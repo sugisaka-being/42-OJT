@@ -15,14 +15,10 @@ namespace ShinobiLeap_Game
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //動作確認用           
+            Application.SetCompatibleTextRenderingDefault(false);        
             Application.Run(new StartForm());
-           // Application.Run(new ShinobiLeapRule());
-            //Application.Run(new ShinobiLeapInAction());
-            //Application.Run(new ShinobiLeapGameOver());
-            //Application.Run(new ShinobiLeapClear());
-
+ 
         }
     }
 }
+

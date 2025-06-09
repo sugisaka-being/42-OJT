@@ -16,6 +16,7 @@ namespace ShinobiLeap_Game
         public ClearForm()
         {
             InitializeComponent();
+            this.FormClosing += ShinobiShiftClear_FormClosing;
         }
 
         private void ShinobiLeapClear_Load(object sender, EventArgs e)
@@ -47,5 +48,11 @@ namespace ShinobiLeap_Game
             // 現在のフォームを閉じる
             this.Hide();
         }
+
+        public void ShinobiShiftClear_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit(); // 終了を実行
+        }
     }
 }
+
