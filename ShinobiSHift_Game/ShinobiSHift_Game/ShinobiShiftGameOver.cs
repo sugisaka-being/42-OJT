@@ -11,11 +11,11 @@ using static ShinobiSHift_Game.ShinobiShiftBooting;
 
 namespace ShinobiSHift_Game
 {
-    public partial class ShinobiShiftGameOver : Form
+    public partial class ShinobiLeapGameOver : Form
     {
         int finalScore;
 
-        public ShinobiShiftGameOver(int score)
+        public ShinobiLeapGameOver(int score)
         {
             InitializeComponent();
             finalScore = score;//スコアをプレイ画面から受け取ってる
