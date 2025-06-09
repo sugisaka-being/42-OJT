@@ -27,12 +27,12 @@ namespace ShinobiSHift_Game
 
         private void ShinobiShift_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Shift) // Shiftキーが押されたら
-            {
+            if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
+            { 
                 // 新しいフォームを作成
                 ShinobiShiftInAction InactionForm = new ShinobiShiftInAction();
 
-                // 新しいフォームを作成
+                // 新しいフォームを作成い
                 InactionForm.Show();
 
                 // 現在のフォームを閉じる
@@ -41,4 +41,5 @@ namespace ShinobiSHift_Game
         }
     }
 }
+
 

@@ -112,7 +112,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ShinobiShiftClear";
-            this.Text = "ShinobiShiftClear";
+            this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiShiftClear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ResumeLayout(false);

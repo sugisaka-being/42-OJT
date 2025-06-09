@@ -73,7 +73,7 @@ namespace ShinobiSHift_Game
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 timer1.Stop();
-                ShinobiShiftGameOver gameOverForm = new ShinobiShiftGameOver(score);//スコアをGameOverフォームに渡してる
+                ShinobiLeapGameOver gameOverForm = new ShinobiLeapGameOver(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
 
@@ -89,9 +89,9 @@ namespace ShinobiSHift_Game
             }
         }
 
-        private void shift(object sender, KeyEventArgs e)
+        private void space(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.ShiftKey)
+            if (e.KeyCode == Keys.Space)
             {
 
                 isOnCeiling = !isOnCeiling;
