@@ -74,7 +74,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(823, 36);
             this.label2.TabIndex = 6;
-            this.label2.Text = "2125年...彼は重力を操るスーツ《AG LEAP》を纏う、唯一のエージェント。";
+            this.label2.Text = "2125年...君は重力を操るスーツ《AG LEAP》を纏う、唯一のエージェント。";
             // 
             // label3
             // 
