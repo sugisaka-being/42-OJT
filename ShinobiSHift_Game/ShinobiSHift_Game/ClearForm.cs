@@ -13,6 +13,7 @@ namespace ShinobiLeap_Game
             InitializeComponent();
             finalScore = score;
             this.FormClosing += ShinobiShiftClear_FormClosing;
+           
         }
 
         private void ShinobiLeapClear_Load(object sender, EventArgs e)
@@ -25,7 +26,7 @@ namespace ShinobiLeap_Game
             ClearBGM.settings.volume = 1;//音量
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, MouseEventArgs e)
         {
             PlayForm InActionForm = new PlayForm();
             // 新しいフォームを表示
@@ -35,8 +36,9 @@ namespace ShinobiLeap_Game
             ClearBGM.Ctlcontrols.stop();// BGMを止める
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, MouseEventArgs e)
         {
+            ActiveControl = null;
             // 新しいフォームを作成
             StartForm StartForm = new StartForm();
             // 新しいフォームを表示

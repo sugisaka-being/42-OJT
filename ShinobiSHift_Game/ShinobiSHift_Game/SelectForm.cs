@@ -31,7 +31,7 @@ namespace ShinobiSHift_Game
             Player2.Size = new Size(49, 62);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, MouseEventArgs e)
         {
             // 新しいフォームを作成
             EndlessRuleForm EndlessRuleForm = new EndlessRuleForm();
@@ -43,7 +43,7 @@ namespace ShinobiSHift_Game
             this.Hide();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, MouseEventArgs e)
         {
             // 新しいフォームを作成
             RuleForm RuleForm = new RuleForm();

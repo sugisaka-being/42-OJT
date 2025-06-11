@@ -32,7 +32,7 @@ namespace ShinobiLeap_Game
             StartBGM.settings.volume = 1;//音量
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, MouseEventArgs e)
         {
             // BGMを止める
             StartBGM.Ctlcontrols.stop();

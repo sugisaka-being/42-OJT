@@ -33,9 +33,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.ClearBGM = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.ClearRecord = new System.Windows.Forms.Label();
-            this.ClearBGM = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClearBGM)).BeginInit();
@@ -50,7 +50,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "ReStart";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -61,7 +61,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_Click);
             // 
             // Player
             // 
@@ -80,6 +80,16 @@
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 10;
+            // 
+            // ClearBGM
+            // 
+            this.ClearBGM.Enabled = true;
+            this.ClearBGM.Location = new System.Drawing.Point(953, -16);
+            this.ClearBGM.Name = "ClearBGM";
+            this.ClearBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearBGM.OcxState")));
+            this.ClearBGM.Size = new System.Drawing.Size(219, 43);
+            this.ClearBGM.TabIndex = 15;
+            this.ClearBGM.Visible = false;
             // 
             // label1
             // 
@@ -103,16 +113,6 @@
             this.ClearRecord.Size = new System.Drawing.Size(99, 39);
             this.ClearRecord.TabIndex = 14;
             this.ClearRecord.Text = "label3";
-            // 
-            // ClearBGM
-            // 
-            this.ClearBGM.Enabled = true;
-            this.ClearBGM.Location = new System.Drawing.Point(953, -16);
-            this.ClearBGM.Name = "ClearBGM";
-            this.ClearBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearBGM.OcxState")));
-            this.ClearBGM.Size = new System.Drawing.Size(219, 43);
-            this.ClearBGM.TabIndex = 15;
-            this.ClearBGM.Visible = false;
             // 
             // ClearForm
             // 

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayForm));
             this.ScorePanel = new System.Windows.Forms.Panel();
-            this.ScoreRecord = new System.Windows.Forms.TextBox();
+            this.PlayBGM = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.Player = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -39,34 +39,36 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.PlayBGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.ScoreRecord = new System.Windows.Forms.Label();
             this.ScorePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayBGM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayBGM)).BeginInit();
             this.SuspendLayout();
             // 
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
-            this.ScorePanel.Controls.Add(this.PlayBGM);
             this.ScorePanel.Controls.Add(this.ScoreRecord);
+            this.ScorePanel.Controls.Add(this.PlayBGM);
             this.ScorePanel.Controls.Add(this.label1);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 6;
             // 
-            // ScoreRecord
+            // PlayBGM
             // 
-            this.ScoreRecord.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
-            this.ScoreRecord.Name = "ScoreRecord";
-            this.ScoreRecord.Size = new System.Drawing.Size(100, 22);
-            this.ScoreRecord.TabIndex = 1;
+            this.PlayBGM.Enabled = true;
+            this.PlayBGM.Location = new System.Drawing.Point(953, -13);
+            this.PlayBGM.Name = "PlayBGM";
+            this.PlayBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PlayBGM.OcxState")));
+            this.PlayBGM.Size = new System.Drawing.Size(219, 43);
+            this.PlayBGM.TabIndex = 7;
+            this.PlayBGM.Visible = false;
             // 
             // label1
             // 
@@ -128,15 +130,14 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // PlayBGM
+            // ScoreRecord
             // 
-            this.PlayBGM.Enabled = true;
-            this.PlayBGM.Location = new System.Drawing.Point(953, -13);
-            this.PlayBGM.Name = "PlayBGM";
-            this.PlayBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("PlayBGM.OcxState")));
-            this.PlayBGM.Size = new System.Drawing.Size(219, 43);
-            this.PlayBGM.TabIndex = 7;
-            this.PlayBGM.Visible = false;
+            this.ScoreRecord.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
+            this.ScoreRecord.Location = new System.Drawing.Point(89, 0);
+            this.ScoreRecord.Name = "ScoreRecord";
+            this.ScoreRecord.Size = new System.Drawing.Size(100, 22);
+            this.ScoreRecord.TabIndex = 8;
+            this.ScoreRecord.Text = "label2";
             // 
             // PlayForm
             // 
@@ -151,12 +152,12 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.space);
             this.ScorePanel.ResumeLayout(false);
             this.ScorePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayBGM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayBGM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -172,7 +173,7 @@
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
-        internal System.Windows.Forms.TextBox ScoreRecord;
         private AxWMPLib.AxWindowsMediaPlayer PlayBGM;
+        private System.Windows.Forms.Label ScoreRecord;
     }
 }

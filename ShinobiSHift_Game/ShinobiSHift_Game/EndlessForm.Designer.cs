@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
-            this.ScoreRecord = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ScoreRecord = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             this.SuspendLayout();
@@ -58,14 +58,6 @@
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 7;
             // 
-            // ScoreRecord
-            // 
-            this.ScoreRecord.Font = new System.Drawing.Font("Impact", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreRecord.Location = new System.Drawing.Point(99, 3);
-            this.ScoreRecord.Name = "ScoreRecord";
-            this.ScoreRecord.Size = new System.Drawing.Size(100, 22);
-            this.ScoreRecord.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -75,6 +67,15 @@
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Score :";
+            // 
+            // ScoreRecord
+            // 
+            this.ScoreRecord.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Italic);
+            this.ScoreRecord.Location = new System.Drawing.Point(89, 0);
+            this.ScoreRecord.Name = "ScoreRecord";
+            this.ScoreRecord.Size = new System.Drawing.Size(100, 22);
+            this.ScoreRecord.TabIndex = 2;
+            this.ScoreRecord.Text = "label2";
             // 
             // EndlessForm
             // 
@@ -97,8 +98,8 @@
 
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
-        internal System.Windows.Forms.TextBox ScoreRecord;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label ScoreRecord;
     }
 }
