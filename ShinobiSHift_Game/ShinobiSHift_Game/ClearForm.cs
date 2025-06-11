@@ -20,6 +20,9 @@ namespace ShinobiLeap_Game
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
             ClearRecord.Text = $"Score：{finalScore}";
+            ClearBGM.URL = @"BGM\ClearTheme1.mp3";//何の曲を流すか
+            ClearBGM.settings.setMode("loop", false); // 1回しか流さない
+            ClearBGM.settings.volume = 1;//音量
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,6 +32,7 @@ namespace ShinobiLeap_Game
             InActionForm.Show();
             // 現在のフォームを閉じる
             this.Hide();
+            ClearBGM.Ctlcontrols.stop();// BGMを止める
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,6 +43,7 @@ namespace ShinobiLeap_Game
             StartForm.Show();
             // 現在のフォームを閉じる
             this.Hide();
+            ClearBGM.Ctlcontrols.stop();// BGMを止める
         }
 
         public void ShinobiShiftClear_FormClosing(object sender, FormClosingEventArgs e)

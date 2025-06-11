@@ -27,14 +27,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RuleForm));
             this.label1 = new System.Windows.Forms.Label();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.RuleBGM = new AxWMPLib.AxWindowsMediaPlayer();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            this.ScorePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RuleBGM)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,10 +64,21 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.RuleBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 5;
+            // 
+            // RuleBGM
+            // 
+            this.RuleBGM.Enabled = true;
+            this.RuleBGM.Location = new System.Drawing.Point(960, -13);
+            this.RuleBGM.Name = "RuleBGM";
+            this.RuleBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("RuleBGM.OcxState")));
+            this.RuleBGM.Size = new System.Drawing.Size(219, 43);
+            this.RuleBGM.TabIndex = 10;
+            this.RuleBGM.Visible = false;
             // 
             // label2
             // 
@@ -126,6 +141,8 @@
             this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiLeapRule_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            this.ScorePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RuleBGM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +157,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private AxWMPLib.AxWindowsMediaPlayer RuleBGM;
     }
 }

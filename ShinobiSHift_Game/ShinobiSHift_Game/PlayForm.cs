@@ -34,6 +34,9 @@ namespace ShinobiLeap_Game
             moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
+            PlayBGM.URL = @"BGM\PlayTheme1.mp3";//何の曲を流すか
+            PlayBGM.settings.setMode("loop", true); // ループ再生
+            PlayBGM.settings.volume = 1;//音量
         }
 
         private void CreateBarrier(object sender, EventArgs e)
@@ -89,6 +92,7 @@ namespace ShinobiLeap_Game
                 GameOverForm gameOverForm = new GameOverForm(score);//スコアをGameOverフォームに渡してる
                 gameOverForm.Show();
                 this.Hide();
+                PlayBGM.Ctlcontrols.stop();// BGMを止める
             }
 
             if (score >= 20000)
@@ -98,6 +102,7 @@ namespace ShinobiLeap_Game
                 this.Hide();   // 現在のフォームを隠す
                 ClearForm clearForm = new ClearForm(score);
                 clearForm.Show();
+                PlayBGM.Ctlcontrols.stop();// BGMを止める
             }
         }
 

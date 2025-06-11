@@ -22,6 +22,9 @@ namespace ShinobiLeap_Game
             Player.Size = new Size(49, 62);
 
             GameOverRecord.Text = $"Score：{finalScore}";
+            GameOverBGM.URL = @"BGM\GameOverTheme1.mp3";//何の曲を流すか
+            GameOverBGM.settings.setMode("loop", false); // 1回しか流さない
+            GameOverBGM.settings.volume = 1;//音量
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,6 +37,9 @@ namespace ShinobiLeap_Game
 
             // 現在のフォームを閉じる// 現在のフォームを隠すのか終了するのか迷う
             this.Hide();
+
+            // BGMを止める
+            GameOverBGM.Ctlcontrols.stop();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +52,9 @@ namespace ShinobiLeap_Game
 
             // 現在のフォームを閉じる// 現在のフォームを隠すのか終了するのか迷う
             this.Hide();
+
+            // BGMを止める
+            GameOverBGM.Ctlcontrols.stop();
         }
 
         public void ShinobiShiftGameOver_FormClosing(object sender, FormClosingEventArgs e)
