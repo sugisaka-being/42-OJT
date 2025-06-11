@@ -9,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShinobiSHift_Game;
 
 namespace ShinobiLeap_Game
 {
@@ -42,18 +43,20 @@ namespace ShinobiLeap_Game
             StartBGM.Ctlcontrols.stop();
 
             // 新しいフォームを作成
-            RuleForm RuleForm = new RuleForm();
+            SelectForm selectForm = new SelectForm();
 
             // 新しいフォームを表示
-            RuleForm.Show();
+            selectForm.Show();
 
             // 現在のフォームを閉じる
             this.Hide();
         }
+        
+    
 
         public void ShinobiShiftBooting_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit(); // 終了を実行
+             Application.Exit(); // 終了を実行
         }
     }
 }

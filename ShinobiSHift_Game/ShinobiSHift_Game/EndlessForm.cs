@@ -1,33 +1,43 @@
-﻿using ShinobiSHift_Game;
+﻿using ShinobiLeap_Game;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
-    public partial class PlayForm : Form
+
+    public partial class EndlessForm : Form
     {
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
+        Barrier barrier;
         private Timer moveTimer;
         private Random rnd = new Random();
         private Bitmap background;
         private ParallaxLayer farLayer;
         private ParallaxLayer midLayer;
 
-        public PlayForm()
+        public EndlessForm()
         {
             InitializeComponent();
+            this.Load += Endless_Load;
             timer1 = new Timer();
             timer1.Interval = 10; // 1秒ごと変更可能
             timer1.Tick += Timer1_Tick;
             this.KeyPreview = true;
+            this.KeyDown += space; // キーイベントを追加
             this.FormClosing += ShinobiShiftInAction_FormClosing;
+
             this.DoubleBuffered = true;
 
             // 画像読み込み
@@ -36,9 +46,7 @@ namespace ShinobiLeap_Game
             midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
 
             this.Paint += PlayForm_Paint;
-
         }
-
         private void PlayForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -58,8 +66,7 @@ namespace ShinobiLeap_Game
             farLayer.Dispose();
             midLayer.Dispose();
         }
-
-        private void ShinobiLeapInAction_Load(object sender, EventArgs e)
+        private void Endless_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
             moveTimer = new Timer();
@@ -67,11 +74,7 @@ namespace ShinobiLeap_Game
             moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
             moveTimer.Start();
-            PlayBGM.URL = @"BGM\PlayTheme1.mp3";//何の曲を流すか
-            PlayBGM.settings.setMode("loop", true); // ループ再生
-            PlayBGM.settings.volume = 1;//音量
         }
-
         private void CreateBarrier(object sender, EventArgs e)
         {
             if (barriers.Count == 0)
@@ -91,7 +94,6 @@ namespace ShinobiLeap_Game
                 }
             }
         }
-
         private void MoveBarrier(object sender, EventArgs e)
         {
             for (int i = barriers.Count - 1; i >= 0; i--)
@@ -108,48 +110,27 @@ namespace ShinobiLeap_Game
                 }
             }
         }
-        private void MoveTimer_Tick(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             score += 8; // 1回ごとに8点加算 → 1秒で800点
+           
             ScoreRecord.Text = score.ToString();
 
             if (barriers.Any(x => Player.Bounds.IntersectsWith(x.PictureBox.Bounds)))//【消さない方がいい】Playerと障害物の衝突判定
             {
                 allTimerStop();
                 int score = int.Parse(ScoreRecord.Text);
-                GameOverForm gameOverForm = new GameOverForm(score);//スコアをGameOverフォームに渡してる
-                gameOverForm.Show();
+                ResultForm resultForm = new ResultForm(score);//スコアをResultFormに渡してる
+                resultForm.Show();
                 this.Hide();
-                PlayBGM.Ctlcontrols.stop();// BGMを止める
             }
 
-            if (score >= 20000)
-            {
-                allTimerStop();
-                int score = int.Parse(ScoreRecord.Text);
-                this.Hide();   // 現在のフォームを隠す
-                ClearForm clearForm = new ClearForm(score);
-                clearForm.Show();
-                PlayBGM.Ctlcontrols.stop();// BGMを止める
-            }
-
-            //背景の位置を更新
             farLayer.Update();
             midLayer.Update();
             Invalidate(); // 再描画
         }
-
         private void space(object sender, KeyEventArgs e)
         {
-            PlayMotionSE1.URL = @"SE\PlayMotionSE1.mp3";//何のSEを流すか
-            PlayMotionSE1.settings.setMode("loop", false); // 1回だけ流す
-            PlayMotionSE1.settings.volume = 10;//音量
-
             if (e.KeyCode == Keys.Space)
             {
                 isOnCeiling = !isOnCeiling;
@@ -165,7 +146,6 @@ namespace ShinobiLeap_Game
                 }
             }
         }
-
         private void allTimerStop()//【消さない方がいい】タイマーを停止し、リソースを開放する
         {
             timer1.Stop();
@@ -181,5 +161,7 @@ namespace ShinobiLeap_Game
         {
             Application.Exit(); // 終了を実行
         }
+
+
     }
 }

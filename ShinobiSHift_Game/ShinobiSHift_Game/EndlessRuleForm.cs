@@ -1,17 +1,24 @@
-﻿using System;
+﻿using ShinobiLeap_Game;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using static ShinobiSHift_Game.SelectForm;
 
-namespace ShinobiLeap_Game
+namespace ShinobiSHift_Game
 {
-    public partial class RuleForm : Form
+    public partial class EndlessRuleForm : Form
     {
-        public RuleForm()
+        public EndlessRuleForm()
         {
             InitializeComponent();
             this.KeyDown += ShinobiLeap_KeyDown;
-            this.FormClosing += ShinobiShiftRule_FormClosing;
+            this.FormClosing += EndlessRule_FormClosing;
+            this.Load += ShinobiLeapRule_Load;
         }
 
         public static int playerX = 158;
@@ -20,38 +27,30 @@ namespace ShinobiLeap_Game
 
         private void ShinobiLeapRule_Load(object sender, EventArgs e)
         {
-            Player.Location = new Point(playerX, groundY);
-            Player.Size = new Size(49, 62);
-            RuleBGM.URL = @"BGM\RuleTheme1.mp3";//何の曲を流すか
-            RuleBGM.settings.setMode("loop", true); // ループ再生
-            RuleBGM.settings.volume = 1;//音量
+            Player2.Location = new Point(playerX, groundY);
+            Player2.Size = new Size(49, 62);
         }
 
         private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space) // Spaceキーが押されたら
             {
-                RuleClickSE1.URL = @"SE\ShinobiLeapClickSE1.mp3";//何のSEを流すか
-                RuleClickSE1.settings.setMode("loop", false); // 1回だけ流す
-                RuleClickSE1.settings.volume = 1;//音量
-
-                // BGMを止める
-                RuleBGM.Ctlcontrols.stop();
-
                 // 新しいフォームを作成
-                PlayForm InactionForm = new PlayForm();
+                EndlessForm endlessForm = new EndlessForm();
 
                 // 新しいフォームを作成い
-                InactionForm.Show();
+                endlessForm.Show();
 
                 // 現在のフォームを閉じる（hideだと隠れているだけでApplication.Run()をコーディングしているBootingを閉じないとアプリケーションは終了しない）
                 this.Hide();
             }
         }
 
-        public void ShinobiShiftRule_FormClosing(object sender, FormClosingEventArgs e)
+            public void EndlessRule_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit(); // 終了を実行
         }
     }
 }
+
+

@@ -48,6 +48,30 @@
   <ItemGroup>
     <Compile Include="Background.cs" />
     <Compile Include="Barrier.cs" />
+    <Compile Include="EndlessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndlessForm.Designer.cs">
+      <DependentUpon>EndlessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndlessRuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndlessRuleForm.Designer.cs">
+      <DependentUpon>EndlessRuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultForm.Designer.cs">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectForm.Designer.cs">
+      <DependentUpon>SelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartForm.cs">
@@ -80,6 +104,12 @@
     <Compile Include="RuleForm.Designer.cs">
       <DependentUpon>RuleForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EndlessForm.resx">
+      <DependentUpon>EndlessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndlessRuleForm.resx">
+      <DependentUpon>EndlessRuleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +119,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ResultForm.resx">
+      <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectForm.resx">
+      <DependentUpon>SelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +194,15 @@
     </Content>
     <Content Include="SE\ShinobiLeapClickSE1.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
+    <Content Include="Images\back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\far.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\mid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
