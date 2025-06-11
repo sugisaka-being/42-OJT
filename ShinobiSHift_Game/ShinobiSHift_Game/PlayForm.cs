@@ -34,6 +34,8 @@ namespace ShinobiLeap_Game
             background = new Bitmap(Path.Combine(Application.StartupPath, "Images", "back.png"));
             farLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "far.png"), 1);
             midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
+            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            Player.BackColor = Color.Transparent; // 透明に設定
 
             this.Paint += PlayForm_Paint;
 
@@ -159,6 +161,18 @@ namespace ShinobiLeap_Game
                     Player.Location = new Point(playerX, groundY);
                     Player.Size = new Size(49, 62);
                 }
+
+                FlipPlayerImage(isOnCeiling);
+            }
+        }
+
+        private void FlipPlayerImage(bool isOnCeiling)
+        {
+            if (Player.Image != null)
+            {
+                Image flippedImage = (Image)Player.Image.Clone(); // 元画像をコピー
+                flippedImage.RotateFlip(RotateFlipType.RotateNoneFlipY); // 上下反転
+                Player.Image = flippedImage;
             }
         }
 

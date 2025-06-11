@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace ShinobiSHift_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            Player.BackColor = Color.Transparent; // 透明に設定
 
             ResultRecord2.Text = $"Score: {finalScore}";
            
