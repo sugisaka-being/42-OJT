@@ -14,7 +14,6 @@ namespace ShinobiLeap_Game
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
-        Barrier barrier;
         private Timer moveTimer;
         private Random rnd = new Random();
         private Bitmap background;
@@ -31,32 +30,17 @@ namespace ShinobiLeap_Game
             this.FormClosing += ShinobiShiftInAction_FormClosing;
             this.DoubleBuffered = true;
             // 画像読み込み
-            background = new Bitmap(Path.Combine("back.png"));
-            farLayer = new ParallaxLayer(Path.Combine("far.png"), 1);
-            midLayer = new ParallaxLayer(Path.Combine("mid.png"), 3);
+
 
             this.Paint += PlayForm_Paint;
-            this.FormClosed += PlayFormClosed;
 
         }
 
         private void PlayForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
-            g.DrawImage(background, 0, 0, this.Width, background.Height);
-
-            // パララックスレイヤーの描画
-            farLayer.Draw(g, this.Height, Width);
-            midLayer.Draw(g, this.Height - 50, Width);
         }
 
-        private void PlayFormClosed(object sender, FormClosedEventArgs e)
-        {
-            background.Dispose();
-            farLayer.Dispose();
-            midLayer.Dispose();
-        }
         private void ShinobiLeapInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
@@ -137,8 +121,6 @@ namespace ShinobiLeap_Game
             }
 
             //背景の位置を更新
-            farLayer.Update();
-            midLayer.Update();
             Invalidate(); // 再描画
         }
 

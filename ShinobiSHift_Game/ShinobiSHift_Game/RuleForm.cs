@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static ShinobiLeap_Game.StartForm;
+using static ShinobiSHift_Game.SelectForm;
 
 namespace ShinobiLeap_Game
 {
@@ -14,6 +14,10 @@ namespace ShinobiLeap_Game
             this.FormClosing += ShinobiShiftRule_FormClosing;
         }
 
+        public static int playerX = 158;
+        public static int groundY = 272;
+        public static int ceilingY = 0;
+
         private void ShinobiLeapRule_Load(object sender, EventArgs e)
         {
             Player.Location = new Point(playerX, groundY);
@@ -25,7 +29,7 @@ namespace ShinobiLeap_Game
 
         private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
+            if (e.KeyCode == Keys.Space) // Spaceキーが押されたら
             {
                 // BGMを止める
                 RuleBGM.Ctlcontrols.stop();
