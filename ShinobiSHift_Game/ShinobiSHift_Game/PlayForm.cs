@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ShinobiSHift_Game;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
@@ -15,6 +17,9 @@ namespace ShinobiLeap_Game
         Barrier barrier;
         private Timer moveTimer;
         private Random rnd = new Random();
+        private Bitmap background;
+        private ParallaxLayer farLayer;
+        private ParallaxLayer midLayer;
 
         public PlayForm()
         {
@@ -24,8 +29,34 @@ namespace ShinobiLeap_Game
             timer1.Tick += Timer1_Tick;
             this.KeyPreview = true;
             this.FormClosing += ShinobiShiftInAction_FormClosing;
+            this.DoubleBuffered = true;
+            // 画像読み込み
+            background = new Bitmap(Path.Combine("back.png"));
+            farLayer = new ParallaxLayer(Path.Combine("far.png"), 1);
+            midLayer = new ParallaxLayer(Path.Combine("mid.png"), 3);
+
+            this.Paint += PlayForm_Paint;
+            this.FormClosed += PlayFormClosed;
+
         }
 
+        private void PlayForm_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.DrawImage(background, 0, 0, this.Width, background.Height);
+
+            // パララックスレイヤーの描画
+            farLayer.Draw(g, this.Height, Width);
+            midLayer.Draw(g, this.Height - 50, Width);
+        }
+
+        private void PlayFormClosed(object sender, FormClosedEventArgs e)
+        {
+            background.Dispose();
+            farLayer.Dispose();
+            midLayer.Dispose();
+        }
         private void ShinobiLeapInAction_Load(object sender, EventArgs e)
         {
             timer1.Start(); // フォーム表示と同時にタイマー開始
@@ -104,6 +135,11 @@ namespace ShinobiLeap_Game
                 clearForm.Show();
                 PlayBGM.Ctlcontrols.stop();// BGMを止める
             }
+
+            //背景の位置を更新
+            farLayer.Update();
+            midLayer.Update();
+            Invalidate(); // 再描画
         }
 
         private void space(object sender, KeyEventArgs e)
