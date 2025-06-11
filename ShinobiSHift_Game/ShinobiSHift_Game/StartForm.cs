@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,6 +35,10 @@ namespace ShinobiLeap_Game
 
         private void button1_Click(object sender, EventArgs e)
         {
+            StartClickSE1.URL = @"SE\ShinobiLeapClickSE1.mp3";//何のSEを流すか
+            StartClickSE1.settings.setMode("loop", false); // 1回だけ流す
+            StartClickSE1.settings.volume = 1;//音量
+
             // BGMを止める
             StartBGM.Ctlcontrols.stop();
 

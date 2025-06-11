@@ -29,6 +29,10 @@ namespace ShinobiLeap_Game
 
         private void button2_Click(object sender, EventArgs e)
         {
+            GameOverClickSE1.URL = @"SE\ShinobiLeapClickSE1.mp3";//何のSEを流すか
+            GameOverClickSE1.settings.setMode("loop", false); // 1回だけ流す
+            GameOverClickSE1.settings.volume = 1;//音量
+
             // 新しいフォームを作成
             PlayForm InActionForm = new PlayForm();
 
@@ -44,6 +48,10 @@ namespace ShinobiLeap_Game
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GameOverClickSE1.URL = @"SE\ShinobiLeapClickSE1.mp3";//何のSEを流すか
+            GameOverClickSE1.settings.setMode("loop", false); // 1回だけ流す
+            GameOverClickSE1.settings.volume = 1;//音量
+
             // 新しいフォームを作成
             StartForm StartForm = new StartForm();
 

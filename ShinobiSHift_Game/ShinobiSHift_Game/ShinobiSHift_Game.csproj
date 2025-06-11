@@ -189,6 +189,12 @@
     <Content Include="BGM\StartTheme1.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SE\PlayMotionSE1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SE\ShinobiLeapClickSE1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
     <Content Include="Images\back.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

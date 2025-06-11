@@ -36,9 +36,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.RuleClickSE1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RuleBGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RuleClickSE1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,6 +66,7 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.RuleClickSE1);
             this.ScorePanel.Controls.Add(this.RuleBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
@@ -124,6 +127,16 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "-SPACEで開始-";
             // 
+            // RuleClickSE1
+            // 
+            this.RuleClickSE1.Enabled = true;
+            this.RuleClickSE1.Location = new System.Drawing.Point(735, -13);
+            this.RuleClickSE1.Name = "RuleClickSE1";
+            this.RuleClickSE1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("RuleClickSE1.OcxState")));
+            this.RuleClickSE1.Size = new System.Drawing.Size(219, 43);
+            this.RuleClickSE1.TabIndex = 11;
+            this.RuleClickSE1.Visible = false;
+            // 
             // RuleForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -143,6 +156,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ScorePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RuleBGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RuleClickSE1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +172,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private AxWMPLib.AxWindowsMediaPlayer RuleBGM;
+        private AxWMPLib.AxWindowsMediaPlayer RuleClickSE1;
     }
 }
