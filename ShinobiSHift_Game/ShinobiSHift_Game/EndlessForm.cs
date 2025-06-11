@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace ShinobiSHift_Game
 {
@@ -21,6 +23,9 @@ namespace ShinobiSHift_Game
         Barrier barrier;
         private Timer moveTimer;
         private Random rnd = new Random();
+        private Bitmap background;
+        private ParallaxLayer farLayer;
+        private ParallaxLayer midLayer;
 
         public EndlessForm()
         {
@@ -32,6 +37,34 @@ namespace ShinobiSHift_Game
             this.KeyPreview = true;
             this.KeyDown += space; // キーイベントを追加
             this.FormClosing += ShinobiShiftInAction_FormClosing;
+
+            this.DoubleBuffered = true;
+
+            // 画像読み込み
+            background = new Bitmap(Path.Combine(Application.StartupPath, "Images", "back.png"));
+            farLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "far.png"), 1);
+            midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
+
+            this.Paint += PlayForm_Paint;
+        }
+        private void PlayForm_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            // 動かない背景の描画（中央揃え）
+            int bgY = this.ClientSize.Height - background.Height;
+            g.DrawImage(background, 0, bgY, this.ClientSize.Width, background.Height);
+
+            // パララックスレイヤーの描画（順序重要）
+            farLayer.Draw(g, this.Height - 40, this.Width);
+            midLayer.Draw(g, this.Height - 40, this.Width);
+        }
+
+        private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            background.Dispose();
+            farLayer.Dispose();
+            midLayer.Dispose();
         }
         private void Endless_Load(object sender, EventArgs e)
         {
@@ -91,6 +124,10 @@ namespace ShinobiSHift_Game
                 resultForm.Show();
                 this.Hide();
             }
+
+            farLayer.Update();
+            midLayer.Update();
+            Invalidate(); // 再描画
         }
         private void space(object sender, KeyEventArgs e)
         {

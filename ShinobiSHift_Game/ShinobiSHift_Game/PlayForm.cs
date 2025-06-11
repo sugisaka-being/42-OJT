@@ -29,8 +29,11 @@ namespace ShinobiLeap_Game
             this.KeyPreview = true;
             this.FormClosing += ShinobiShiftInAction_FormClosing;
             this.DoubleBuffered = true;
-            // 画像読み込み
 
+            // 画像読み込み
+            background = new Bitmap(Path.Combine(Application.StartupPath, "Images", "back.png"));
+            farLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "far.png"), 1);
+            midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
 
             this.Paint += PlayForm_Paint;
 
@@ -39,6 +42,21 @@ namespace ShinobiLeap_Game
         private void PlayForm_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
+            // 動かない背景の描画（中央揃え）
+            int bgY = this.ClientSize.Height - background.Height;
+            g.DrawImage(background, 0, bgY, this.ClientSize.Width, background.Height);
+
+            // パララックスレイヤーの描画（順序重要）
+            farLayer.Draw(g, this.Height - 40, this.Width);
+            midLayer.Draw(g, this.Height - 40, this.Width);
+        }
+
+        private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            background.Dispose();
+            farLayer.Dispose();
+            midLayer.Dispose();
         }
 
         private void ShinobiLeapInAction_Load(object sender, EventArgs e)
@@ -121,6 +139,8 @@ namespace ShinobiLeap_Game
             }
 
             //背景の位置を更新
+            farLayer.Update();
+            midLayer.Update();
             Invalidate(); // 再描画
         }
 
