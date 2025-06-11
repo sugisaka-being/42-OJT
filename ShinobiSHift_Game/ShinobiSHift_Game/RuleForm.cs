@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static ShinobiSHift_Game.SelectForm;
 
@@ -22,6 +23,8 @@ namespace ShinobiLeap_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            Player.BackColor = Color.Transparent; // 透明に設定
             RuleBGM.URL = @"BGM\RuleTheme1.mp3";//何の曲を流すか
             RuleBGM.settings.setMode("loop", true); // ループ再生
             RuleBGM.settings.volume = 1;//音量

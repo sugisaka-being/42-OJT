@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
 
@@ -25,6 +26,8 @@ namespace ShinobiLeap_Game
             GameOverBGM.URL = @"BGM\GameOverTheme1.mp3";//何の曲を流すか
             GameOverBGM.settings.setMode("loop", false); // 1回しか流さない
             GameOverBGM.settings.volume = 1;//音量
+            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            Player.BackColor = Color.Transparent; // 透明に設定
         }
 
         private void button2_Click(object sender, EventArgs e)
