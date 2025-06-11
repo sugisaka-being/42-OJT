@@ -34,9 +34,11 @@
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
             this.StartBGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.StartClickSE1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartBGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartClickSE1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,6 +76,7 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.StartClickSE1);
             this.ScorePanel.Controls.Add(this.StartBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
@@ -89,6 +92,16 @@
             this.StartBGM.Size = new System.Drawing.Size(219, 43);
             this.StartBGM.TabIndex = 4;
             this.StartBGM.Visible = false;
+            // 
+            // StartClickSE1
+            // 
+            this.StartClickSE1.Enabled = true;
+            this.StartClickSE1.Location = new System.Drawing.Point(728, -13);
+            this.StartClickSE1.Name = "StartClickSE1";
+            this.StartClickSE1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("StartClickSE1.OcxState")));
+            this.StartClickSE1.Size = new System.Drawing.Size(219, 43);
+            this.StartClickSE1.TabIndex = 5;
+            this.StartClickSE1.Visible = false;
             // 
             // StartForm
             // 
@@ -107,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ScorePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StartBGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StartClickSE1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,6 +132,7 @@
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
         private AxWMPLib.AxWindowsMediaPlayer StartBGM;
+        private AxWMPLib.AxWindowsMediaPlayer StartClickSE1;
     }
 }
 

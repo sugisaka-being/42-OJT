@@ -14,7 +14,6 @@ namespace ShinobiLeap_Game
         private int score = 0;
         private bool isOnCeiling = false;
         List<Barrier> barriers = new List<Barrier>();
-        Barrier barrier;
         private Timer moveTimer;
         private Random rnd = new Random();
         private Bitmap background;
@@ -144,6 +143,10 @@ namespace ShinobiLeap_Game
 
         private void space(object sender, KeyEventArgs e)
         {
+            PlayMotionSE1.URL = @"SE\PlayMotionSE1.mp3";//何のSEを流すか
+            PlayMotionSE1.settings.setMode("loop", false); // 1回だけ流す
+            PlayMotionSE1.settings.volume = 10;//音量
+
             if (e.KeyCode == Keys.Space)
             {
                 isOnCeiling = !isOnCeiling;

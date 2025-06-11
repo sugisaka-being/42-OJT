@@ -25,8 +25,12 @@ namespace ShinobiLeap_Game
 
         private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
+            if (e.KeyCode == Keys.Space) // Spaceキーが押されたら
             {
+                RuleClickSE1.URL = @"SE\ShinobiLeapClickSE1.mp3";//何のSEを流すか
+                RuleClickSE1.settings.setMode("loop", false); // 1回だけ流す
+                RuleClickSE1.settings.volume = 1;//音量
+
                 // BGMを止める
                 RuleBGM.Ctlcontrols.stop();
 

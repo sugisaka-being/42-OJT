@@ -33,12 +33,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.ClearBGM = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.ClearRecord = new System.Windows.Forms.Label();
-            this.ClearBGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.ClearClickSE1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.CreditName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClearBGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClearClickSE1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -75,11 +78,22 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.ClearClickSE1);
             this.ScorePanel.Controls.Add(this.ClearBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 10;
+            // 
+            // ClearBGM
+            // 
+            this.ClearBGM.Enabled = true;
+            this.ClearBGM.Location = new System.Drawing.Point(953, -16);
+            this.ClearBGM.Name = "ClearBGM";
+            this.ClearBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearBGM.OcxState")));
+            this.ClearBGM.Size = new System.Drawing.Size(219, 43);
+            this.ClearBGM.TabIndex = 15;
+            this.ClearBGM.Visible = false;
             // 
             // label1
             // 
@@ -104,21 +118,33 @@
             this.ClearRecord.TabIndex = 14;
             this.ClearRecord.Text = "label3";
             // 
-            // ClearBGM
+            // ClearClickSE1
             // 
-            this.ClearBGM.Enabled = true;
-            this.ClearBGM.Location = new System.Drawing.Point(953, -16);
-            this.ClearBGM.Name = "ClearBGM";
-            this.ClearBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearBGM.OcxState")));
-            this.ClearBGM.Size = new System.Drawing.Size(219, 43);
-            this.ClearBGM.TabIndex = 15;
-            this.ClearBGM.Visible = false;
+            this.ClearClickSE1.Enabled = true;
+            this.ClearClickSE1.Location = new System.Drawing.Point(728, -13);
+            this.ClearClickSE1.Name = "ClearClickSE1";
+            this.ClearClickSE1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearClickSE1.OcxState")));
+            this.ClearClickSE1.Size = new System.Drawing.Size(219, 43);
+            this.ClearClickSE1.TabIndex = 16;
+            this.ClearClickSE1.Visible = false;
+            // 
+            // CreditName
+            // 
+            this.CreditName.AutoSize = true;
+            this.CreditName.Font = new System.Drawing.Font("ＭＳ 明朝", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CreditName.ForeColor = System.Drawing.Color.White;
+            this.CreditName.Location = new System.Drawing.Point(909, 307);
+            this.CreditName.Name = "CreditName";
+            this.CreditName.Size = new System.Drawing.Size(263, 11);
+            this.CreditName.TabIndex = 15;
+            this.CreditName.Text = "■使用SE OtoLogic モーション 「スイング06」";
             // 
             // ClearForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1184, 361);
+            this.Controls.Add(this.CreditName);
             this.Controls.Add(this.ClearRecord);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -131,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             this.ScorePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ClearBGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClearClickSE1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +172,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ClearRecord;
         private AxWMPLib.AxWindowsMediaPlayer ClearBGM;
+        private AxWMPLib.AxWindowsMediaPlayer ClearClickSE1;
+        private System.Windows.Forms.Label CreditName;
     }
 }

@@ -31,14 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameOverForm));
             this.label1 = new System.Windows.Forms.Label();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.GameOverBGM = new AxWMPLib.AxWindowsMediaPlayer();
             this.Player = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.GameOverRecord = new System.Windows.Forms.Label();
-            this.GameOverBGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.GameOverClickSE1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.ScorePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverClickSE1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,11 +58,22 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.GameOverClickSE1);
             this.ScorePanel.Controls.Add(this.GameOverBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 3;
+            // 
+            // GameOverBGM
+            // 
+            this.GameOverBGM.Enabled = true;
+            this.GameOverBGM.Location = new System.Drawing.Point(953, -13);
+            this.GameOverBGM.Name = "GameOverBGM";
+            this.GameOverBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("GameOverBGM.OcxState")));
+            this.GameOverBGM.Size = new System.Drawing.Size(219, 43);
+            this.GameOverBGM.TabIndex = 9;
+            this.GameOverBGM.Visible = false;
             // 
             // Player
             // 
@@ -104,15 +117,15 @@
             this.GameOverRecord.TabIndex = 8;
             this.GameOverRecord.Text = "2000\r\n";
             // 
-            // GameOverBGM
+            // GameOverClickSE1
             // 
-            this.GameOverBGM.Enabled = true;
-            this.GameOverBGM.Location = new System.Drawing.Point(953, -13);
-            this.GameOverBGM.Name = "GameOverBGM";
-            this.GameOverBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("GameOverBGM.OcxState")));
-            this.GameOverBGM.Size = new System.Drawing.Size(219, 43);
-            this.GameOverBGM.TabIndex = 9;
-            this.GameOverBGM.Visible = false;
+            this.GameOverClickSE1.Enabled = true;
+            this.GameOverClickSE1.Location = new System.Drawing.Point(726, -13);
+            this.GameOverClickSE1.Name = "GameOverClickSE1";
+            this.GameOverClickSE1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("GameOverClickSE1.OcxState")));
+            this.GameOverClickSE1.Size = new System.Drawing.Size(219, 43);
+            this.GameOverClickSE1.TabIndex = 10;
+            this.GameOverClickSE1.Visible = false;
             // 
             // GameOverForm
             // 
@@ -129,8 +142,9 @@
             this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiLeapGameOver_Load);
             this.ScorePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GameOverBGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverClickSE1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -144,5 +158,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label GameOverRecord;
         private AxWMPLib.AxWindowsMediaPlayer GameOverBGM;
+        private AxWMPLib.AxWindowsMediaPlayer GameOverClickSE1;
     }
 }
