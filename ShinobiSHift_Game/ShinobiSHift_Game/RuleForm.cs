@@ -18,12 +18,18 @@ namespace ShinobiLeap_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            RuleBGM.URL = @"BGM\RuleTheme1.mp3";//何の曲を流すか
+            RuleBGM.settings.setMode("loop", true); // ループ再生
+            RuleBGM.settings.volume = 1;//音量
         }
 
         private void ShinobiLeap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space) // Shiftキーが押されたら
             {
+                // BGMを止める
+                RuleBGM.Ctlcontrols.stop();
+
                 // 新しいフォームを作成
                 PlayForm InactionForm = new PlayForm();
 

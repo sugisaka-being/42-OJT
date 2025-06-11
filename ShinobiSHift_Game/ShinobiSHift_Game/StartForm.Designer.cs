@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
+            this.StartBGM = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            this.ScorePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StartBGM)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,10 +74,21 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.StartBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
             this.ScorePanel.TabIndex = 2;
+            // 
+            // StartBGM
+            // 
+            this.StartBGM.Enabled = true;
+            this.StartBGM.Location = new System.Drawing.Point(953, -16);
+            this.StartBGM.Name = "StartBGM";
+            this.StartBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("StartBGM.OcxState")));
+            this.StartBGM.Size = new System.Drawing.Size(219, 43);
+            this.StartBGM.TabIndex = 4;
+            this.StartBGM.Visible = false;
             // 
             // StartForm
             // 
@@ -90,6 +105,8 @@
             this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.StartForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            this.ScorePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.StartBGM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,6 +117,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox Player;
         private System.Windows.Forms.Panel ScorePanel;
+        private AxWMPLib.AxWindowsMediaPlayer StartBGM;
     }
 }
 

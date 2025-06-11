@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClearForm));
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Player = new System.Windows.Forms.PictureBox();
             this.ScorePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.ClearRecord = new System.Windows.Forms.Label();
+            this.ClearBGM = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            this.ScorePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ClearBGM)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -71,6 +75,7 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.ClearBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
@@ -99,6 +104,16 @@
             this.ClearRecord.TabIndex = 14;
             this.ClearRecord.Text = "label3";
             // 
+            // ClearBGM
+            // 
+            this.ClearBGM.Enabled = true;
+            this.ClearBGM.Location = new System.Drawing.Point(953, -16);
+            this.ClearBGM.Name = "ClearBGM";
+            this.ClearBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("ClearBGM.OcxState")));
+            this.ClearBGM.Size = new System.Drawing.Size(219, 43);
+            this.ClearBGM.TabIndex = 15;
+            this.ClearBGM.Visible = false;
+            // 
             // ClearForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -114,6 +129,8 @@
             this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiLeapClear_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            this.ScorePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ClearBGM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,5 +144,6 @@
         private System.Windows.Forms.Panel ScorePanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ClearRecord;
+        private AxWMPLib.AxWindowsMediaPlayer ClearBGM;
     }
 }

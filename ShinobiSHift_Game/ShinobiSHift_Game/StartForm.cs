@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,10 +26,16 @@ namespace ShinobiLeap_Game
         {
             Player.Location = new Point(playerX, groundY);
             Player.Size = new Size(49, 62);
+            StartBGM.URL = @"BGM\StartTheme1.mp3";//何の曲を流すか
+            StartBGM.settings.setMode("loop", true); // ループ再生
+            StartBGM.settings.volume = 1;//音量
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // BGMを止める
+            StartBGM.Ctlcontrols.stop();
+
             // 新しいフォームを作成
             RuleForm RuleForm = new RuleForm();
 

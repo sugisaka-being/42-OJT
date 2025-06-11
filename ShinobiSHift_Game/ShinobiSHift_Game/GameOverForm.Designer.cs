@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameOverForm));
             this.label1 = new System.Windows.Forms.Label();
             this.ScorePanel = new System.Windows.Forms.Panel();
             this.Player = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.GameOverRecord = new System.Windows.Forms.Label();
+            this.GameOverBGM = new AxWMPLib.AxWindowsMediaPlayer();
+            this.ScorePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverBGM)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,6 +56,7 @@
             // ScorePanel
             // 
             this.ScorePanel.BackColor = System.Drawing.Color.White;
+            this.ScorePanel.Controls.Add(this.GameOverBGM);
             this.ScorePanel.Location = new System.Drawing.Point(0, 334);
             this.ScorePanel.Name = "ScorePanel";
             this.ScorePanel.Size = new System.Drawing.Size(1200, 30);
@@ -99,7 +104,16 @@
             this.GameOverRecord.TabIndex = 8;
             this.GameOverRecord.Text = "2000\r\n";
             // 
-            // ShinobiLeapGameOver
+            // GameOverBGM
+            // 
+            this.GameOverBGM.Enabled = true;
+            this.GameOverBGM.Location = new System.Drawing.Point(953, -13);
+            this.GameOverBGM.Name = "GameOverBGM";
+            this.GameOverBGM.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("GameOverBGM.OcxState")));
+            this.GameOverBGM.Size = new System.Drawing.Size(219, 43);
+            this.GameOverBGM.TabIndex = 9;
+            this.GameOverBGM.Visible = false;
+            // 
             // GameOverForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -114,7 +128,9 @@
             this.Name = "GameOverForm";
             this.Text = "ShinobiLeap";
             this.Load += new System.EventHandler(this.ShinobiLeapGameOver_Load);
+            this.ScorePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GameOverBGM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +143,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label GameOverRecord;
+        private AxWMPLib.AxWindowsMediaPlayer GameOverBGM;
     }
 }
