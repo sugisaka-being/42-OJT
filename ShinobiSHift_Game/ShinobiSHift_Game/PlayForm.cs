@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using static ShinobiLeap_Game.StartForm;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace ShinobiLeap_Game
 {
@@ -17,8 +18,12 @@ namespace ShinobiLeap_Game
         private Timer moveTimer;
         private Random rnd = new Random();
         private Bitmap background;
+        private Timer PlayerTimer;
+        private Bitmap playerRun1;
+        private Bitmap playerRun2;
         private ParallaxLayer farLayer;
         private ParallaxLayer midLayer;
+        private bool isRun1 = true;
 
         public PlayForm()
         {
@@ -34,7 +39,8 @@ namespace ShinobiLeap_Game
             background = new Bitmap(Path.Combine(Application.StartupPath, "Images", "back.png"));
             farLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "far.png"), 1);
             midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
-            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            playerRun1 = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninjarun1.png"));
+            playerRun2 = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninjarun2.png"));
             Player.BackColor = Color.Transparent; // 透明に設定
 
             this.Paint += PlayForm_Paint;
@@ -68,12 +74,32 @@ namespace ShinobiLeap_Game
             moveTimer.Interval = 30;
             moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
+            PlayerTimer = new Timer();
+            PlayerTimer.Interval = 80;
+            PlayerTimer.Tick += AnimatePlayer;
+            PlayerTimer.Start();
             moveTimer.Start();
             PlayBGM.URL = @"BGM\PlayTheme1.mp3";//何の曲を流すか
             PlayBGM.settings.setMode("loop", true); // ループ再生
             PlayBGM.settings.volume = 1;//音量
         }
 
+        private void AnimatePlayer(object sender, EventArgs e)
+        {
+            Image currentFrame = isRun1 ? playerRun1 : playerRun2;
+
+            Player.Image = isOnCeiling ? GetFlippedImage(currentFrame) : currentFrame;
+
+            isRun1 = !isRun1;
+
+        }
+
+        private Image GetFlippedImage(Image img)
+        {
+            Image flipped = (Image)img.Clone();
+            flipped.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            return flipped;
+        }
         private void CreateBarrier(object sender, EventArgs e)
         {
             if (barriers.Count == 0)
@@ -165,18 +191,6 @@ namespace ShinobiLeap_Game
                     Player.Location = new Point(playerX, groundY);
                     Player.Size = new Size(49, 62);
                 }
-
-                FlipPlayerImage(isOnCeiling);
-            }
-        }
-
-        private void FlipPlayerImage(bool isOnCeiling)
-        {
-            if (Player.Image != null)
-            {
-                Image flippedImage = (Image)Player.Image.Clone(); // 元画像をコピー
-                flippedImage.RotateFlip(RotateFlipType.RotateNoneFlipY); // 上下反転
-                Player.Image = flippedImage;
             }
         }
 
@@ -189,6 +203,10 @@ namespace ShinobiLeap_Game
             moveTimer.Stop();
             moveTimer.Dispose();
             moveTimer = null;
+
+            PlayerTimer.Stop();
+            PlayerTimer.Dispose();
+            PlayerTimer = null;
         }
 
         public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)

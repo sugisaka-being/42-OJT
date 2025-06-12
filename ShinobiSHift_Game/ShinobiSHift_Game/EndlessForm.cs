@@ -24,8 +24,12 @@ namespace ShinobiSHift_Game
         private Timer moveTimer;
         private Random rnd = new Random();
         private Bitmap background;
+        private Timer PlayerTimer;
+        private Bitmap playerRun1;
+        private Bitmap playerRun2;
         private ParallaxLayer farLayer;
         private ParallaxLayer midLayer;
+        private bool isRun1 = true;
 
         public EndlessForm()
         {
@@ -44,7 +48,8 @@ namespace ShinobiSHift_Game
             background = new Bitmap(Path.Combine(Application.StartupPath, "Images", "back.png"));
             farLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "far.png"), 1);
             midLayer = new ParallaxLayer(Path.Combine(Application.StartupPath, "Images", "mid.png"), 3);
-            Player.Image = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninja.png"));
+            playerRun1 = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninjarun1.png"));
+            playerRun2 = new Bitmap(Path.Combine(Application.StartupPath, "Images", "ninjarun2.png"));
             Player.BackColor = Color.Transparent; // 透明に設定
 
             this.Paint += PlayForm_Paint;
@@ -75,7 +80,27 @@ namespace ShinobiSHift_Game
             moveTimer.Interval = 30;
             moveTimer.Tick += CreateBarrier;
             moveTimer.Tick += MoveBarrier;
+            PlayerTimer = new Timer();
+            PlayerTimer.Interval = 80;
+            PlayerTimer.Tick += AnimatePlayer;
+            PlayerTimer.Start();
             moveTimer.Start();
+        }
+        private void AnimatePlayer(object sender, EventArgs e)
+        {
+            Image currentFrame = isRun1 ? playerRun1 : playerRun2;
+
+            Player.Image = isOnCeiling ? GetFlippedImage(currentFrame) : currentFrame;
+
+            isRun1 = !isRun1;
+
+        }
+
+        private Image GetFlippedImage(Image img)
+        {
+            Image flipped = (Image)img.Clone();
+            flipped.RotateFlip(RotateFlipType.RotateNoneFlipY);
+            return flipped;
         }
         private void CreateBarrier(object sender, EventArgs e)
         {
@@ -168,6 +193,10 @@ namespace ShinobiSHift_Game
             moveTimer.Stop();
             moveTimer.Dispose();
             moveTimer = null;
+
+            PlayerTimer.Stop();
+            PlayerTimer.Dispose();
+            PlayerTimer = null;
         }
 
         public void ShinobiShiftInAction_FormClosing(object sender, FormClosingEventArgs e)
