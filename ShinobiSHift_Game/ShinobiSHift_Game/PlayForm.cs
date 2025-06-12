@@ -21,6 +21,7 @@ namespace ShinobiLeap_Game
         private Timer PlayerTimer;
         private Bitmap playerRun1;
         private Bitmap playerRun2;
+        private Bitmap barriar;
         private ParallaxLayer farLayer;
         private ParallaxLayer midLayer;
         private bool isRun1 = true;
@@ -45,6 +46,11 @@ namespace ShinobiLeap_Game
 
             this.Paint += PlayForm_Paint;
 
+        }
+
+        public static class ImageCache
+        {
+            public static readonly Image BarrierImage = new Bitmap(Path.Combine(Application.StartupPath, "Images", "barriar.png"));
         }
 
         private void PlayForm_Paint(object sender, PaintEventArgs e)
